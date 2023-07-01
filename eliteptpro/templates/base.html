@@ -5,16 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/0f1d727d9d.js" crossorigin="anonymous"></script>
+    <!-- Materialize Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Elite PT Pro</title>
 </head>
 
 <body>
 
+    <nav>
+        <!-- Top NavBar -->
+        <div class="nav-wrapper grey darken-3">
+            <a href="#!" class="brand-logo logo-image">
+                <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}">
+            </a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Book a Session</a></li>
+                <li><a href="#">My Sessions</a></li>
+                <li><a href="#">My Sessions</a></li> <!--PT USER-->
+                <li><a href="#">Log Out</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile NavBar -->
+    <ul class="sidenav right" id="mobile-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Book a Session</a></li>
+        <li><a href="#">My Sessions</a></li>
+        <li><a href="#">My Sessions</a></li> <!--PT USER-->
+        <li><a href="#">Log Out</a></li>
+    </ul>
+
     <h1>Hello World!</h1>
 
-
+    <!-- Materialize Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>
