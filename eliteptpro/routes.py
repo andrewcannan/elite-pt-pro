@@ -22,12 +22,25 @@ def register():
 
         new_user = User(
             username=request.form.get("username").lower(),
+            fname=request.form.get("fname").lower(),
+            lname=request.form.get("lname").lower(),
             password=generate_password_hash(request.form.get("password")),
             is_pt=bool(True if request.form.get("is_pt") else False)
         )
+
         db.session.add(new_user)
         db.session.commit()
 
+        trainers = list(User.query.filter(User.is_pt.is_(True)).all())
+        for trainer in trainers:
+            new_trainer = Trainers(
+                user_id=trainer.id,
+                trainer_name=trainer.fname
+            )
+            db.session.add(new_trainer)
+            db.session.commit()
+
         session["user"] = request.form.get("username").lower()
         flash("Registration successful!")
+        return redirect(url_for("home"))
     return render_template("register.html")
