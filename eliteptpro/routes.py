@@ -20,6 +20,7 @@ def register():
             flash("Username already eists")
             return redirect(url_for("register"))
 
+        # create new instance of a user
         new_user = User(
             username=request.form.get("username").lower(),
             fname=request.form.get("fname").lower(),
@@ -31,6 +32,9 @@ def register():
         db.session.add(new_user)
         db.session.commit()
 
+        # once new user is commited to db retrieve a list of all users
+        # with true attribute for "is_pt"and iterate over the list to add 
+        # any new trainers to trainers table
         trainers = list(User.query.filter(User.is_pt.is_(True)).all())
         for trainer in trainers:
             new_trainer = Trainers(
