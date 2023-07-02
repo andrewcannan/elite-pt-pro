@@ -4,8 +4,8 @@ from eliteptpro import db
 class User(db.Model):
     # schema for User model
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, nullable=True)
-    password = db.Column(db.String, unique=True, nullable=True)
+    username = db.Column(db.String, nullable=False)
+    password = db.Column(db.String, unique=True, nullable=False)
     is_pt = db.Column(db.Boolean, default=False, nullable=False)
 
     def __repr__(self):
