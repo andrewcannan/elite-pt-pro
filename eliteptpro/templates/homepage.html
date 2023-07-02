@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Materialize slider adjusted for my own purposes -->
+<div class="row">
+    <div class="slider fullscreen responsive-img">
+        <ul class="slides">
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/sule-makaroglu-YFmvjO3TP-s-unsplash.webp') }}">
+            </li>
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/valery-sysoev-LDAirERNzew-unsplash.webp') }}">
+            </li>
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/sven-mieke-optBC2FxCfc-unsplash.webp') }}">
+            </li>
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/ricardo-henri-IBlWVIGnXag-unsplash.webp') }}">
+            </li>
+        </ul>
+    </div>
+    <div class="col s12 center-align home-text">
+        <h1 class="grey-text lighten-3">Ready to book a session with your Personal Trainer?</h1>
+    </div>
+</div>
+
+{% endblock %}

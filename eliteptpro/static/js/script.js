@@ -5,4 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
         closeOnClick: true,
         edge: 'right'
     });
+
+    let slider = document.querySelectorAll('.slider');
+    M.Slider.init(slider,{
+        indicators: false
+    });
 });

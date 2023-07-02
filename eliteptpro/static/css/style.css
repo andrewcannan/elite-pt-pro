@@ -6,6 +6,12 @@ body {
 
 main {
     flex: 1 0 auto;
+    width: 100%;
+}
+
+/* Navbar */
+nav {
+    z-index: 1;
 }
 
 .logo-image {
@@ -17,10 +23,32 @@ main {
 footer {
     height: 100px;
     padding: 25px;
+    z-index: 1;
+}
+
+/* HomePage */
+.slider {
+    z-index: 0;
+}
+
+.slider .slides li img {
+    height: 93vh;
+}
+
+.home-text {
+    position: relative;
+    bottom: -50%;
 }
 
 @media screen and (min-width: 993px) {
     .logo-image {
-            margin-left: 20px;
-        }
+        margin-left: 20px;
+    }
+
+    #my-nav {
+        /* important rule only used to override the important rule in materialize css*/
+        background-color: rgba(0, 0, 0, .5) !important;
+        height: 100px;
+        padding-top: 15px;
+    }
 }
