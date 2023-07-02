@@ -27,17 +27,18 @@ footer {
 }
 
 /* HomePage */
+.home-row {
+    margin-bottom: 0;
+}
+
 .slider {
     z-index: 0;
 }
 
-.slider .slides li img {
-    height: 93vh;
-}
-
 .home-text {
+    margin-top: 10%;
     position: relative;
-    bottom: -50%;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 @media screen and (min-width: 993px) {
@@ -50,5 +51,9 @@ footer {
         background-color: rgba(0, 0, 0, .5) !important;
         height: 100px;
         padding-top: 15px;
+    }
+
+    .home-text {
+        bottom: -300px;
     }
 }
