@@ -33,7 +33,7 @@ def register():
         db.session.commit()
 
         # once new user is commited to db retrieve a list of all users
-        # with true attribute for "is_pt"and iterate over the list to add 
+        # with true attribute for "is_pt"and iterate over the list to add
         # any new trainers to trainers table
         trainers = list(User.query.filter(User.is_pt.is_(True)).all())
         for trainer in trainers:
@@ -48,3 +48,8 @@ def register():
         flash("Registration successful!")
         return redirect(url_for("home"))
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
