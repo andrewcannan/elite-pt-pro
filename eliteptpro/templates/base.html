@@ -16,36 +16,51 @@
 </head>
 
 <body>
-    <nav id="my-nav" class="grey darken-3">
-        <!-- Top NavBar -->
-        <div class="nav-wrapper">
-            <a href="{{ url_for('home') }}" class="brand-logo logo-image">
-                <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}">
-            </a>
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="#">Book a Session</a></li>
-                <li><a href="#">My Sessions</a></li>
-                <li><a href="#">My Sessions</a></li> <!--PT USER-->
-                <li><a href="#">Log Out</a></li>
+    <header>
+        <nav id="my-nav" class="grey darken-3">
+            <!-- Top NavBar -->
+            <div class="nav-wrapper">
+                <a href="{{ url_for('home') }}" class="brand-logo logo-image">
+                    <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}">
+                </a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="#">Book a Session</a></li>
+                    <li><a href="#">My Sessions</a></li>
+                    <li><a href="#">My Sessions</a></li> <!--PT USER-->
+                    <li><a href="#">Log Out</a></li>
 
-            </ul>
-        </div>
-    </nav>
+                </ul>
+            </div>
+        </nav>
 
-    <!-- Mobile NavBar -->
-    <ul class="sidenav right" id="mobile-nav">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
-        <li><a href="{{ url_for('login') }}">Log In</a></li>
-        <li><a href="#">Book a Session</a></li>
-        <li><a href="#">My Sessions</a></li>
-        <li><a href="#">My Sessions</a></li> <!--PT USER-->
-        <li><a href="#">Log Out</a></li>
-    </ul>
+        <!-- Mobile NavBar -->
+        <ul class="sidenav right" id="mobile-nav">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="#">Book a Session</a></li>
+            <li><a href="#">My Sessions</a></li>
+            <li><a href="#">My Sessions</a></li> <!--PT USER-->
+            <li><a href="#">Log Out</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="grey darken-3 white-text center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
 
     <!-- Main content block -->
     <main class="container">
@@ -61,11 +76,12 @@
             </div>
             <div class="col s12 m3 white-text text-lighten-4 center-align">
                 <a class="white-text text-lighten-4" href="https://github.com/andrewcannan" target="_blank">GitHub
-                    Profile  <i class="fa-brands fa-github"></i></a>
+                    Profile <i class="fa-brands fa-github"></i></a>
             </div>
             <div class="col s12 m3 white-text text-lighten-4 center-align">
-                <a class="white-text text-lighten-4" href="https://www.linkedin.com/in/andrew-cannan/" target="_blank">LinkedIn
-                    Profile  <i class="fa-brands fa-linkedin"></i></a>
+                <a class="white-text text-lighten-4" href="https://www.linkedin.com/in/andrew-cannan/"
+                    target="_blank">LinkedIn
+                    Profile <i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
     </footer>

@@ -52,4 +52,22 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        existing_user = User.query.filter(
+            User.username == request.form.get("username").lower()).all()
+
+        if existing_user:
+            if check_password_hash(
+                existing_user.password, request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+            
+            else:
+                flash("Username and/or Password incorrect!")
+                return redirect(url_for("login"))
+
+        else:
+            flash("Username and/or Password incorrect!")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
