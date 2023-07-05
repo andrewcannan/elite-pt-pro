@@ -46,7 +46,8 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration successful!")
-        return redirect(url_for("home"))
+        return redirect(url_for(
+            "my_sessions", username=session["user"]))
     return render_template("register.html")
 
 
@@ -65,6 +66,8 @@ def login():
                 else:
                     session.pop("pt", None)
                 flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                    "my_sessions", username=session["user"]))
             
             else:
                 flash("Username and/or Password incorrect!")
@@ -75,3 +78,10 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/my_sessions/<username>", methods=["GET", "POST"])
+def my_sessions(username):
+    # get user object that corresponds to the session user
+    user = User.query.filter_by(username=session["user"]).first()
+    return render_template("my_sessions.html", user=user)
