@@ -85,3 +85,8 @@ def my_sessions(username):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     return render_template("my_sessions.html", user=user)
+
+
+@app.route("/book_session", methods=["GET", "POST"])
+def book_session():
+    return render_template("book_session.html")
