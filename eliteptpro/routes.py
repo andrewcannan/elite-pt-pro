@@ -54,12 +54,16 @@ def register():
 def login():
     if request.method == "POST":
         existing_user = User.query.filter(
-            User.username == request.form.get("username").lower()).all()
+            User.username == request.form.get("username").lower()).first()
 
         if existing_user:
             if check_password_hash(
                 existing_user.password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+                if existing_user.is_pt:
+                    session["pt"] = True
+                else:
+                    session.pop("pt", None)
                 flash("Welcome, {}".format(request.form.get("username")))
             
             else:
