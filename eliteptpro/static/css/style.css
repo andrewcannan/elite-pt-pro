@@ -29,7 +29,7 @@ footer {
 
 /*  Flash message */
 
-.flashes h5 {
+#flash {
     z-index: 1;
     margin-top: 2.5rem;
     }

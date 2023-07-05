@@ -80,6 +80,13 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    # clear all session cookies
+    session.clear()
+    return redirect(url_for("home"))
+
+
 @app.route("/my_sessions/<username>", methods=["GET", "POST"])
 def my_sessions(username):
     # get user object that corresponds to the session user

@@ -28,11 +28,11 @@
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     {% if session.pt %}
                         <li><a href="#">PT Sessions</a></li> <!--PT USER-->
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% elif session.user and not session.pt %}
                         <li><a href="{{ url_for('book_session') }}">Book a Session</a></li>
                         <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -46,11 +46,11 @@
             <li><a href="{{ url_for('home') }}">Home</a></li>
             {% if session.pt %}
                 <li><a href="#">PT Sessions</a></li> <!--PT USER-->
-                <li><a href="#">Log Out</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% elif session.user and not session.pt %}
                 <li><a href="{{ url_for('book_session') }}">Book a Session</a></li>
                  <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -63,7 +63,7 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div class="row flashes">
+                    <div id="flash"  class="row flashes">
                         <h4 class="grey darken-3 white-text center-align">{{ message }}</h4>
                     </div>
                 {% endfor %}
