@@ -109,6 +109,8 @@ def pt_sessions(username):
     trainer = Trainers.query.filter_by(user_id=user.id).first()
     # get list of holidays that corresponds to the current trainers id
     holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
+    # get all sessions in db that correspond to current trainers id
+    sessions = Sessions.query.filter_by(trainer_id=trainer.id).all()
     return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays)
 
 
