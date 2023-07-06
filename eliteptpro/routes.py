@@ -33,7 +33,7 @@ def register():
         db.session.commit()
 
         # once new user is commited to db retrieve a list of all users
-        # with true attribute for "is_pt"and iterate over the list to add
+        # with true attribute for "is_pt" and iterate over the list to add
         # any new trainers to trainers table
         trainers = list(User.query.filter(User.is_pt.is_(True)).all())
         for trainer in trainers:
@@ -46,35 +46,40 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration successful!")
-        return redirect(url_for(
-            "my_sessions", username=session["user"]))
+        return redirect(url_for("home"))
     return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
+        # check if username is in db
         existing_user = User.query.filter(
             User.username == request.form.get("username").lower()).first()
 
+        # check if password matches
         if existing_user:
             if check_password_hash(
                 existing_user.password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+                # check if user has true attribute for is_pt
                 if existing_user.is_pt:
                     session["pt"] = True
                     return redirect(url_for(
                     "pt_sessions"))
+                # if is_pt is false 
                 else:
                     session.pop("pt", None)
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
                     "my_sessions", username=session["user"]))
             
+            # if password is incorrect
             else:
                 flash("Username and/or Password incorrect!")
                 return redirect(url_for("login"))
 
+        # if username not in db
         else:
             flash("Username and/or Password incorrect!")
             return redirect(url_for("login"))
@@ -98,8 +103,13 @@ def my_sessions(username):
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
 def pt_sessions(username):
+    # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
-    return render_template("pt_sessions.html", user=user)
+    # get trainers object that corresponds to the current users id
+    trainer = Trainers.query.filter_by(user_id=user.id).first()
+    # get list of holidays that corresponds to the current trainers id
+    holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
+    return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays)
 
 
 @app.route("/book_session", methods=["GET", "POST"])
