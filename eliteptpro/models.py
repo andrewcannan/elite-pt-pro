@@ -54,6 +54,7 @@ class Sessions(db.Model):
         "user.id", ondelete="CASCADE"), nullable=False)
     trainer_id = db.Column(db.Integer, db.ForeignKey(
         "trainers.id", ondelete="CASCADE"), nullable=False)
+    name = db.Column(db.String, nullable=False)
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.Time, nullable=False)
     description = db.Column(db.Text, nullable=False)
