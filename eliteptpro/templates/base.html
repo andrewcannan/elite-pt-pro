@@ -17,8 +17,8 @@
 
 <body>
     <header>
+        <!-- Top NavBar -->
         <nav id="my-nav" class="grey darken-3">
-            <!-- Top NavBar -->
             <div class="nav-wrapper">
                 <a href="{{ url_for('home') }}" class="brand-logo logo-image">
                     <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}">
@@ -27,7 +27,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     {% if session.pt %}
-                        <li><a href="#">PT Sessions</a></li> <!--PT USER-->
+                        <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% elif session.user and not session.pt %}
                         <li><a href="{{ url_for('book_session') }}">Book a Session</a></li>
@@ -45,7 +45,7 @@
         <ul class="sidenav right" id="mobile-nav">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             {% if session.pt %}
-                <li><a href="#">PT Sessions</a></li> <!--PT USER-->
+                <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% elif session.user and not session.pt %}
                 <li><a href="{{ url_for('book_session') }}">Book a Session</a></li>
@@ -58,8 +58,8 @@
         </ul>
     </header>
 
+    <!-- Flash messages -->
     <section>
-        <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}

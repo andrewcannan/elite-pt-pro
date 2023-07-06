@@ -63,6 +63,8 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 if existing_user.is_pt:
                     session["pt"] = True
+                    return redirect(url_for(
+                    "pt_sessions"))
                 else:
                     session.pop("pt", None)
                 flash("Welcome, {}".format(request.form.get("username")))
@@ -92,6 +94,12 @@ def my_sessions(username):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     return render_template("my_sessions.html", user=user)
+
+
+@app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
+def pt_sessions(username):
+    user = User.query.filter_by(username=session["user"]).first()
+    return render_template("pt_sessions.html", user=user)
 
 
 @app.route("/book_session", methods=["GET", "POST"])
