@@ -65,6 +65,7 @@ def login():
                 # check if user has true attribute for is_pt
                 if existing_user.is_pt:
                     session["pt"] = True
+                    flash("Welcome, {}".format(request.form.get("username")))
                     return redirect(url_for(
                     "pt_sessions", username=session["user"]))
                 # if is_pt is false 
