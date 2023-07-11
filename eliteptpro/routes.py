@@ -66,7 +66,7 @@ def login():
                 if existing_user.is_pt:
                     session["pt"] = True
                     return redirect(url_for(
-                    "pt_sessions"))
+                    "pt_sessions", username=session["user"]))
                 # if is_pt is false 
                 else:
                     session.pop("pt", None)
@@ -111,7 +111,26 @@ def pt_sessions(username):
     holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
     # get all sessions in db that correspond to current trainers id
     sessions = Sessions.query.filter_by(trainer_id=trainer.id).all()
-    return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays)
+    return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays, sessions=sessions)
+
+
+@app.route("/holiday", methods=["GET", "POST"])
+def holiday():
+    # get user object that corresponds to the session user
+    user = User.query.filter_by(username=session["user"]).first()
+    # get trainers object that corresponds to the current users id
+    trainer = Trainers.query.filter_by(user_id=user.id).first()
+    if request.method == "POST":
+        # create ne instance of a holiday and add to db
+        new_holiday = Holidays(
+            trainer_id=trainer.id,
+            date=request.form.get("date")
+        )
+        db.session.add(new_holiday)
+        db.session.commit()
+        flash("Holiday added successfully")
+        return redirect(url_for("pt_sessions", username=session["user"]))
+    return render_template("holiday.html")
 
 
 @app.route("/book_session", methods=["GET", "POST"])
