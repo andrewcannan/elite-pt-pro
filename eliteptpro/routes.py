@@ -47,8 +47,7 @@ def register():
                 db.session.add(new_trainer)
                 db.session.commit()
 
-        session["user"] = request.form.get("username").lower()
-        flash("Registration successful!")
+        flash("Registration successful! Please Log in.")
         return redirect(url_for("home"))
     return render_template("register.html")
 
