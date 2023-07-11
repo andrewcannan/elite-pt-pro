@@ -37,12 +37,15 @@ def register():
         # any new trainers to trainers table
         trainers = list(User.query.filter(User.is_pt.is_(True)).all())
         for trainer in trainers:
-            new_trainer = Trainers(
-                user_id=trainer.id,
-                trainer_name=trainer.fname
-            )
-            db.session.add(new_trainer)
-            db.session.commit()
+            existing_trainer = Trainers.query.filter(
+                Trainers.user_id == trainer.id).all()
+            if not existing_trainer:
+                new_trainer = Trainers(
+                    user_id=trainer.id,
+                    trainer_name=trainer.fname
+                )
+                db.session.add(new_trainer)
+                db.session.commit()
 
         session["user"] = request.form.get("username").lower()
         flash("Registration successful!")
@@ -136,4 +139,12 @@ def holiday():
 
 @app.route("/book_session", methods=["GET", "POST"])
 def book_session():
-    return render_template("book_session.html")
+    # get user object that corresponds to the session user
+    user = User.query.filter_by(username=session["user"]).first()
+    # get trainers list that corresponds to the current users id
+    trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
+
+    # get list of holidays that corresponds to the current trainers id
+    # holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
+
+    return render_template("book_session.html", trainers=trainers)
