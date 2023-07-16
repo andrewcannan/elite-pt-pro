@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, flash, url_for, session
+from flask import render_template, redirect, request, flash, url_for, session, jsonify
 from eliteptpro import app, db
 from eliteptpro.models import User, Trainers, Holidays, Sessions
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -142,8 +142,16 @@ def book_session():
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers list that corresponds to the current users id
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
+    return render_template("book_session.html", user=user, trainers=trainers)
 
-    # get list of holidays that corresponds to the current trainers id
-    # holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
 
-    return render_template("book_session.html", trainers=trainers)
+@app.route("/search_holidays", methods=["POST"])
+def search_holidays():
+    # get name of trainer from json sent and use that to return a list of dates 
+    # booked as holidays by that trainer
+    selected_trainer = request.json["selected_trainer"]
+    selected_trainer_id = Trainers.query.filter_by(trainer_name=selected_trainer).first()
+    trainer_id = selected_trainer_id.id
+    holidays = Holidays.query.filter_by(trainer_id=trainer_id).all()
+    holiday_dates = [holiday.date for holiday in holidays]
+    return jsonify({'holidays': holiday_dates})
