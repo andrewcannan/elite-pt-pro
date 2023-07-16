@@ -101,7 +101,8 @@ def logout():
 def my_sessions(username):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
-    return render_template("my_sessions.html", user=user)
+    sessions = Sessions.query.filter_by(user_id=user.id).all()
+    return render_template("my_sessions.html", user=user, sessions=sessions)
 
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
