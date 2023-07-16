@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             M.Datepicker.init(datepicker, {
                 disableWeekends: true,
                 format: "dd, mmm, yyyy",
+                autoClose: true,
                 disableDayFn: (date) => {
                     // convert date to format expected by Materialize CSS (YYYY-MM-DD)
                     const year = date.getFullYear();
@@ -39,10 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function getHolidays() {
+    /**
+     * sends request to backend to retrieve list of holidays for selected trainer
+     * formats returned array to a format accepted by datepicker for use in datepicker
+     */
     return new Promise((resolve, reject) => {
-        // xml request to retrieve holidays for selected trainer
-        let trainerSelect = document.getElementById("trainer_name");
         // add event listener on dropdown selection change
+        let trainerSelect = document.getElementById("trainer_name");
         trainerSelect.addEventListener("change", function () {
             let selectedTrainer = this.value;
             // send request to flask backend to retrieve holidays from db
@@ -71,3 +75,27 @@ function getHolidays() {
         });
     })
 };
+
+// function getTimes() {
+//     let selectedTrainer = document.getElementById("trainer_name").value();
+//     let dateSelect = document.getElementById("date");
+//     dateSelect.addEventListener("change", function () {
+//         let selectedDate = this.value;
+//         let xhr = new XMLHttpRequest();
+//             xhr.open("POST", "/search_times", true);
+//             xhr.setRequestHeader("Content-Type", "application/json");
+//             xhr.send(JSON.stringify({
+//                 "selected_date": selectedDate,
+//                 "selected_trainer": selectedTrainer
+//             }));
+//             xhr.onload = function () {
+//                 let response = JSON.parse(xhr.responseText);
+//                 let times = response.times;
+//                 for (let time of times) {
+
+//                 }
+//                 };
+//                 resolve(formattedDates);
+//             };
+//     })
+// }

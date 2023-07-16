@@ -142,6 +142,23 @@ def book_session():
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers list that corresponds to the current users id
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
+    # add new instance of session to db
+    if request. method == "POST":
+        trainer = request.form.get("trainer_name")
+        selected_trainer = Trainers.query.filter_by(trainer_name=trainer).first()
+        trainer_id = selected_trainer.id
+        new_session = Sessions(
+            user_id=user.id,
+            trainer_id=trainer_id,
+            name=request.form.get("name"),
+            date=request.form.get("date"),
+            time=request.form.get("time"),
+            description=request.form.get("description")
+        )
+        db.session.add(new_session)
+        db.session.commit()
+        flash("Session booked successfully")
+        return redirect(url_for("my_sessions", username=session["user"]))
     return render_template("book_session.html", user=user, trainers=trainers)
 
 
@@ -155,3 +172,14 @@ def search_holidays():
     holidays = Holidays.query.filter_by(trainer_id=trainer_id).all()
     holiday_dates = [holiday.date for holiday in holidays]
     return jsonify({'holidays': holiday_dates})
+
+
+# @app.route("/search_times", methods=["POST"])
+# def search_times():
+#     selected_trainer = request.json["selected_trainer"]
+#     selected_trainer_id = Trainers.query.filter_by(trainer_name=selected_trainer).first()
+#     trainer_id = selected_trainer_id.id
+#     selected_date = request.json["selected_date"]
+#     sessions = Sessions.query.filter_by(trainer_id=trainer_id).all()
+#     times = [session for session in sessions if session.date == selected_date]
+#     return jsonify({'times': times})
