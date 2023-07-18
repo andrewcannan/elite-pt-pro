@@ -163,6 +163,15 @@ def book_session():
     return render_template("book_session.html", user=user, trainers=trainers)
 
 
+@app.route("/delete_session/<int:session_id>")
+def delete_session():
+    # deletes pt session from the sessions table in db
+    session = Sesions.query.get_or_404(session_id)
+    db.session.delete(session)
+    db.session.commit()
+    return redirect(url_for("my_sessions"))
+
+
 @app.route("/search_holidays", methods=["POST"])
 def search_holidays():
     # get name of trainer from json sent and use that to return a list of dates 
