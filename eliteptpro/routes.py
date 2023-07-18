@@ -175,12 +175,16 @@ def search_holidays():
     return jsonify({'holidays': holiday_dates})
 
 
-# @app.route("/search_times", methods=["POST"])
-# def search_times():
-#     selected_trainer = request.json["selected_trainer"]
-#     selected_trainer_id = Trainers.query.filter_by(trainer_name=selected_trainer).first()
-#     trainer_id = selected_trainer_id.id
-#     selected_date = request.json["selected_date"]
-#     sessions = Sessions.query.filter_by(trainer_id=trainer_id).all()
-#     times = [session for session in sessions if session.date == selected_date]
-#     return jsonify({'times': times})
+@app.route("/search_times", methods=["POST"])
+def search_times():
+    # get name of trainer and date from json, retrieve trainer id using name
+    # and query sessions table to retrieve list of times for selected trainer
+    # for that specific date
+    selected_trainer = request.json["selected_trainer"]
+    selected_trainer_id = Trainers.query.filter_by(trainer_name=selected_trainer).first()
+    trainer_id = selected_trainer_id.id
+    selected_date = request.json["selected_date"]
+    sessions = Sessions.query.filter_by(trainer_id=trainer_id, date=selected_date).all()
+    times = [session.time for session in sessions]
+    times_string = [time.strftime('%H:%M') for time in times]
+    return jsonify({'times': times_string})

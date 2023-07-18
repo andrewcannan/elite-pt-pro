@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
             });
         })
+
+    getTimes()
 });
 
 function getHolidays() {
@@ -76,26 +78,35 @@ function getHolidays() {
     })
 };
 
-// function getTimes() {
-//     let selectedTrainer = document.getElementById("trainer_name").value();
-//     let dateSelect = document.getElementById("date");
-//     dateSelect.addEventListener("change", function () {
-//         let selectedDate = this.value;
-//         let xhr = new XMLHttpRequest();
-//             xhr.open("POST", "/search_times", true);
-//             xhr.setRequestHeader("Content-Type", "application/json");
-//             xhr.send(JSON.stringify({
-//                 "selected_date": selectedDate,
-//                 "selected_trainer": selectedTrainer
-//             }));
-//             xhr.onload = function () {
-//                 let response = JSON.parse(xhr.responseText);
-//                 let times = response.times;
-//                 for (let time of times) {
-
-//                 }
-//                 };
-//                 resolve(formattedDates);
-//             };
-//     })
-// }
+function getTimes() {
+    // let selectedTrainer = document.getElementById("trainer_name").value;
+    let dateSelect = document.getElementById("date");
+    let selectbox = document.getElementById("time");
+    console.log(selectbox)
+    dateSelect.addEventListener("change", function () {
+        let selectedDate = this.value;
+        let selectedTrainer = document.getElementById("trainer_name").value;
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/search_times", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify({
+            "selected_date": selectedDate,
+            "selected_trainer": selectedTrainer
+        }));
+        xhr.onload = function () {
+            let selectbox = document.getElementById("time");
+            let response = JSON.parse(xhr.responseText);
+            let times = response.times;
+            for (let i = 0; i < selectbox.options.length; i++) {
+                let option = selectbox.options[i];
+                if (times.includes(option.value)) {
+                    option.disabled = true;
+                    option.classList.add("disabled-option");
+                } else {
+                    option.disabled = false;
+                    option.classList.remove("disabled-option");
+                }
+            }
+        }
+    })
+}

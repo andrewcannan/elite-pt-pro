@@ -49,6 +49,11 @@ footer {
     background-color: rgba(0, 0, 0, .5);
 }
 
+.disabled-option {
+    color: #ccc;
+    pointer-events: none;
+  }
+
 @media screen and (min-width: 993px) {
     .logo-image {
         margin-left: 20px;
