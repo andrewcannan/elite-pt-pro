@@ -138,7 +138,7 @@ def holiday():
 
 
 @app.route("/delete_holiday/<int:holiday_id>")
-def delete_session(holiday_id):
+def delete_holiday(holiday_id):
     # deletes holiday from the holidays table in db
     holiday = Holidays.query.get_or_404(holiday_id)
     db.session.delete(holiday)
@@ -178,6 +178,8 @@ def delete_session(session_id):
     session = Sesions.query.get_or_404(session_id)
     db.session.delete(session)
     db.session.commit()
+    if session.pt:
+        return redirect(url_for("pt_sessions", username=session["user"]))
     return redirect(url_for("my_sessions", username=session["user"]))
 
 
