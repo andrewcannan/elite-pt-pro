@@ -137,6 +137,15 @@ def holiday():
     return render_template("holiday.html")
 
 
+@app.route("/delete_holiday/<int:holiday_id>")
+def delete_session(holiday_id):
+    # deletes holiday from the holidays table in db
+    holiday = Holidays.query.get_or_404(holiday_id)
+    db.session.delete(holiday)
+    db.session.commit()
+    return redirect(url_for("pt_sessions", username=session["user"]))
+
+
 @app.route("/book_session", methods=["GET", "POST"])
 def book_session():
     # get user object that corresponds to the session user
@@ -164,12 +173,12 @@ def book_session():
 
 
 @app.route("/delete_session/<int:session_id>")
-def delete_session():
+def delete_session(session_id):
     # deletes pt session from the sessions table in db
     session = Sesions.query.get_or_404(session_id)
     db.session.delete(session)
     db.session.commit()
-    return redirect(url_for("my_sessions"))
+    return redirect(url_for("my_sessions", username=session["user"]))
 
 
 @app.route("/search_holidays", methods=["POST"])
