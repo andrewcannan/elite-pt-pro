@@ -37,9 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
             });
         })
-
+    // let selectbox = document.getElementById("time");
+    // let dateSelect = document.getElementById("date");
+    // console.log(selectbox)
+    // dateSelect.addEventListener("change", getTimes());
     getTimes()
-});
+})
+
+
+
+
 
 function getHolidays() {
     /**
@@ -79,13 +86,17 @@ function getHolidays() {
 };
 
 function getTimes() {
-    // let selectedTrainer = document.getElementById("trainer_name").value;
+    /**
+     * sends request to backend to retrieve list of times booked on specific date for selected trainer
+     * and disable option in dropdown list
+     */
     let dateSelect = document.getElementById("date");
     let selectbox = document.getElementById("time");
-    console.log(selectbox)
+    // add event listener on ddatepicker selection change
     dateSelect.addEventListener("change", function () {
         let selectedDate = this.value;
         let selectedTrainer = document.getElementById("trainer_name").value;
+        // send request to flask backend to retrieve times from db
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "/search_times", true);
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -93,20 +104,71 @@ function getTimes() {
             "selected_date": selectedDate,
             "selected_trainer": selectedTrainer
         }));
+        // response from backend
         xhr.onload = function () {
             let selectbox = document.getElementById("time");
             let response = JSON.parse(xhr.responseText);
             let times = response.times;
-            for (let i = 0; i < selectbox.options.length; i++) {
-                let option = selectbox.options[i];
-                if (times.includes(option.value)) {
+            // create array of potential times 
+            let openingHours = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
+            // set a default selected option
+            let defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.text = "Select a time";
+            defaultOption.selected = true; // Set as default selected option
+            defaultOption.disabled = true; // Disable the default option
+            selectbox.appendChild(defaultOption);
+            // iterate over openingHours array and create an option for the dropdown
+            for (let hour of openingHours) {
+                let option = document.createElement("option");
+                option.value = hour;
+                option.text = hour;
+                // if hour is in array of times retrieved from db add disabled attribute
+                if (times.includes(hour)) {
                     option.disabled = true;
-                    option.classList.add("disabled-option");
-                } else {
-                    option.disabled = false;
-                    option.classList.remove("disabled-option");
                 }
+
+                selectbox.appendChild(option);
             }
+            // initialize dropdown
+            M.FormSelect.init(selectbox);
         }
+
     })
 }
+
+// function getTimes() {
+//     let selectedDate = this.value;
+//     let selectedTrainer = document.getElementById("trainer_name").value;
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("POST", "/search_times", true);
+//     xhr.setRequestHeader("Content-Type", "application/json");
+//     xhr.send(JSON.stringify({
+//         "selected_date": selectedDate,
+//         "selected_trainer": selectedTrainer
+//     }));
+//     xhr.onload = function () {
+//         let selectbox = document.getElementById("time");
+//         let response = JSON.parse(xhr.responseText);
+//         let times = response.times;
+//         let openingHours = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
+//         let defaultOption = document.createElement("option");
+//         defaultOption.value = "";
+//         defaultOption.text = "Select a time";
+//         defaultOption.selected = true; // Set as default selected option
+//         defaultOption.disabled = true; // Disable the default option
+//         selectbox.appendChild(defaultOption);
+//         for (let hour of openingHours) {
+//             let option = document.createElement("option");
+//             option.value = hour;
+//             option.text = hour;
+
+//             if (times.includes(hour)) {
+//                 option.disabled = true;
+//             }
+
+//             selectbox.appendChild(option);
+//         }
+//         M.FormSelect.init(selectbox);
+//     }
+// }
