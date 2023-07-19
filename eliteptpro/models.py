@@ -47,7 +47,7 @@ class Holidays(db.Model):
         return self.date
 
 
-class Sessions(db.Model):
+class PTsessions(db.Model):
     # schema for Sessions model
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(

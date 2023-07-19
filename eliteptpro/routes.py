@@ -101,8 +101,8 @@ def logout():
 def my_sessions(username):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
-    sessions = Sessions.query.filter_by(user_id=user.id).all()
-    return render_template("my_sessions.html", user=user, sessions=sessions)
+    pt_sessions = PTsessions.query.filter_by(user_id=user.id).all()
+    return render_template("my_sessions.html", user=user, pt_sessions=pt_sessions)
 
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
@@ -114,8 +114,8 @@ def pt_sessions(username):
     # get list of holidays that corresponds to the current trainers id
     holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
     # get all sessions in db that correspond to current trainers id
-    sessions = Sessions.query.filter_by(trainer_id=trainer.id).all()
-    return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays, sessions=sessions)
+    pt_sessions = PTsessions.query.filter_by(trainer_id=trainer.id).all()
+    return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays, pt_sessions=pt_sessions)
 
 
 @app.route("/holiday", methods=["GET", "POST"])
@@ -146,8 +146,8 @@ def delete_holiday(holiday_id):
     return redirect(url_for("pt_sessions", username=session["user"]))
 
 
-@app.route("/book_session", methods=["GET", "POST"])
-def book_session():
+@app.route("/book_pt_session", methods=["GET", "POST"])
+def book_pt_session():
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers list that corresponds to the current users id
@@ -158,7 +158,7 @@ def book_session():
         selected_trainer = Trainers.query.filter_by(
             trainer_name=trainer).first()
         trainer_id = selected_trainer.id
-        new_session = Sessions(
+        new_pt_session = PTsessions(
             user_id=user.id,
             trainer_id=trainer_id,
             name=request.form.get("name"),
@@ -166,23 +166,21 @@ def book_session():
             time=request.form.get("time"),
             description=request.form.get("description")
         )
-        db.session.add(new_session)
+        db.session.add(new_pt_session)
         db.session.commit()
         flash("Session booked successfully")
         return redirect(url_for("my_sessions", username=session["user"]))
-    return render_template("book_session.html", user=user, trainers=trainers)
+    return render_template("book_pt_session.html", user=user, trainers=trainers)
 
 
-@app.route("/edit_session/<int:session_id>", methods=["GET", "POST"])
-def edit_session(session_id):
-    # retrieve pt session from db or throw 404 if non existent
-    session = Sessions.query.get_or_404(session_id)
+@app.route("/edit_pt_session/<int:pt_session_id>", methods=["GET", "POST"])
+def edit_pt_session(session_id):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers list that corresponds to the current users id
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
     # retrieve pt session from db or throw 404 if non existent
-    session = Sessions.query.get_or_404(session_id)
+    pt_session = PTsessions.query.get_or_404(session_id)
     if request.method == "POST":
         # gets trainers id by query with the name selected in the form
         trainer = request.form.get("trainer_name")
@@ -190,21 +188,21 @@ def edit_session(session_id):
             trainer_name=trainer).first()
         trainer_id = selected_trainer.id
         # edit row in table
-        session.user_id = user.id,
-        session.trainer_id = trainer_id,
-        session.name = request.form.get("name"),
-        session.date = request.form.get("date"),
-        session.time = request.form.get("time"),
-        session.description = request.form.get("description")
+        pt_session.user_id = user.id,
+        pt_session.trainer_id = trainer_id,
+        pt_session.name = request.form.get("name"),
+        pt_session.date = request.form.get("date"),
+        pt_session.time = request.form.get("time"),
+        pt_session.description = request.form.get("description")
         db.session.commit()
-    return render_template("edit_session.html", user=user, trainers=trainers, session=session)
+    return render_template("edit_pt_session.html", user=user, trainers=trainers, pt_session=pt_session)
 
 
-@app.route("/delete_session/<int:session_id>")
-def delete_session(session_id):
+@app.route("/delete_pt_session/<int:session_id>")
+def delete_pt_session(session_id):
     # deletes pt session from the sessions table in db
-    session = Sesions.query.get_or_404(session_id)
-    db.session.delete(session)
+    pt_session = PTsesions.query.get_or_404(session_id)
+    db.session.delete(pt_session)
     db.session.commit()
     if session.pt:
         return redirect(url_for("pt_sessions", username=session["user"]))
@@ -234,8 +232,8 @@ def search_times():
         trainer_name=selected_trainer).first()
     trainer_id = selected_trainer_id.id
     selected_date = request.json["selected_date"]
-    sessions = Sessions.query.filter_by(
+    pt_sessions = PTsessions.query.filter_by(
         trainer_id=trainer_id, date=selected_date).all()
-    times = [session.time for session in sessions]
+    times = [pt_session.time for pt_session in pt_sessions]
     times_string = [time.strftime('%H:%M') for time in times]
     return jsonify({'times': times_string})
