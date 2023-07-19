@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row center-align">
-    <h3 class="white-text">Book a Session</h3>
+    <h3 class="white-text">Edit your Session</h3>
 </div>
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('book_session') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_session', session_id=session.id) }}">
         <div class="card-panel grey draken-3">
             <!-- Name input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="name" name="name" type="text" class="validate white-text" required>
+                    <input id="name" name="name" type="text" class="validate white-text" value="{{ session.name }}" required>
                     <label for="name" class="white-text">Name</label>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
-                    <input id="date" name="date" type="text" class="datepicker validate" required>
+                    <input id="date" name="date" type="text" class="datepicker validate" value="{{ session.date }}" required>
                     <label for="date" class="white-text">Pick a Date</label>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
-                    <select id="time" name="time" class="validate white-text validate" required>
+                    <select id="time" name="time" class="validate white-text validate" value="{{ session.time }}" required>
                         <!-- Options added with JavaScript -->
                     </select>
                     <label for="time" class="white-text">Pick a Time</label>
@@ -49,14 +49,14 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix light-green-text"></i>
-                    <textarea id="description" name="description" class="materialize-textarea validate white-text" required></textarea>
+                    <textarea id="description" name="description" class="materialize-textarea validate white-text" value="{{ session.description }}" required></textarea>
                     <label for="description" class="white-text">Description of Workout</label>
                 </div>
             </div>
             <!-- Submit button -->
             <div class="row">
                 <button type="submit" class="col s12 btn-large light-green white-text text-shadow">
-                    Submit <i class="fa-solid fa-share-from-square"></i>
+                    Edit <i class="fa-solid fa-share-from-square"></i>
                 </button>
             </div>
         </div>

@@ -17,7 +17,7 @@ def register():
             User.username == request.form.get("username").lower()).all()
 
         if existing_user:
-            flash("Username already eists")
+            flash("Username already exists")
             return redirect(url_for("register"))
 
         # create new instance of a user
@@ -62,21 +62,21 @@ def login():
         # check if password matches
         if existing_user:
             if check_password_hash(
-                existing_user.password, request.form.get("password")):
+                    existing_user.password, request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 # check if user has true attribute for is_pt
                 if existing_user.is_pt:
                     session["pt"] = True
                     flash("Welcome, {}".format(request.form.get("username")))
                     return redirect(url_for(
-                    "pt_sessions", username=session["user"]))
-                # if is_pt is false 
+                        "pt_sessions", username=session["user"]))
+                # if is_pt is false
                 else:
                     session.pop("pt", None)
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
                     "my_sessions", username=session["user"]))
-            
+
             # if password is incorrect
             else:
                 flash("Username and/or Password incorrect!")
@@ -153,9 +153,10 @@ def book_session():
     # get trainers list that corresponds to the current users id
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
     # add new instance of session to db
-    if request. method == "POST":
+    if request.method == "POST":
         trainer = request.form.get("trainer_name")
-        selected_trainer = Trainers.query.filter_by(trainer_name=trainer).first()
+        selected_trainer = Trainers.query.filter_by(
+            trainer_name=trainer).first()
         trainer_id = selected_trainer.id
         new_session = Sessions(
             user_id=user.id,
@@ -172,6 +173,33 @@ def book_session():
     return render_template("book_session.html", user=user, trainers=trainers)
 
 
+@app.route("/edit_session/<int:session_id>", methods=["GET", "POST"])
+def edit_session(session_id):
+    # retrieve pt session from db or throw 404 if non existent
+    session = Sessions.query.get_or_404(session_id)
+    # get user object that corresponds to the session user
+    user = User.query.filter_by(username=session["user"]).first()
+    # get trainers list that corresponds to the current users id
+    trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
+    # retrieve pt session from db or throw 404 if non existent
+    session = Sessions.query.get_or_404(session_id)
+    if request.method == "POST":
+        # gets trainers id by query with the name selected in the form
+        trainer = request.form.get("trainer_name")
+        selected_trainer = Trainers.query.filter_by(
+            trainer_name=trainer).first()
+        trainer_id = selected_trainer.id
+        # edit row in table
+        session.user_id = user.id,
+        session.trainer_id = trainer_id,
+        session.name = request.form.get("name"),
+        session.date = request.form.get("date"),
+        session.time = request.form.get("time"),
+        session.description = request.form.get("description")
+        db.session.commit()
+    return render_template("edit_session.html", user=user, trainers=trainers, session=session)
+
+
 @app.route("/delete_session/<int:session_id>")
 def delete_session(session_id):
     # deletes pt session from the sessions table in db
@@ -185,10 +213,11 @@ def delete_session(session_id):
 
 @app.route("/search_holidays", methods=["POST"])
 def search_holidays():
-    # get name of trainer from json sent and use that to return a list of dates 
+    # get name of trainer from json sent and use that to return a list of dates
     # booked as holidays by that trainer
     selected_trainer = request.json["selected_trainer"]
-    selected_trainer_id = Trainers.query.filter_by(trainer_name=selected_trainer).first()
+    selected_trainer_id = Trainers.query.filter_by(
+        trainer_name=selected_trainer).first()
     trainer_id = selected_trainer_id.id
     holidays = Holidays.query.filter_by(trainer_id=trainer_id).all()
     holiday_dates = [holiday.date for holiday in holidays]
@@ -201,10 +230,12 @@ def search_times():
     # and query sessions table to retrieve list of times for selected trainer
     # for that specific date
     selected_trainer = request.json["selected_trainer"]
-    selected_trainer_id = Trainers.query.filter_by(trainer_name=selected_trainer).first()
+    selected_trainer_id = Trainers.query.filter_by(
+        trainer_name=selected_trainer).first()
     trainer_id = selected_trainer_id.id
     selected_date = request.json["selected_date"]
-    sessions = Sessions.query.filter_by(trainer_id=trainer_id, date=selected_date).all()
+    sessions = Sessions.query.filter_by(
+        trainer_id=trainer_id, date=selected_date).all()
     times = [session.time for session in sessions]
     times_string = [time.strftime('%H:%M') for time in times]
     return jsonify({'times': times_string})
