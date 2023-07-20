@@ -102,7 +102,13 @@ def my_sessions(username):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     pt_sessions = PTsessions.query.filter_by(user_id=user.id).all()
-    return render_template("my_sessions.html", user=user, pt_sessions=pt_sessions)
+    print(pt_sessions)
+    for pt_session in pt_sessions:
+        trainer_id = pt_session.trainer_id
+        selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
+        trainer_name = selected_trainer.trainer_name
+        pt_session.trainer_name = trainer_name
+    return render_template("my_sessions.html", user=user, pt_sessions=pt_sessions, trainer_name=trainer_name)
 
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
