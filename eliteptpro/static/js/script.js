@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let dropdown = document.querySelectorAll('select');
     M.FormSelect.init(dropdown);
 
-    // datepicker initialization
+    // pt session datepicker initialization
     getHolidays()
         .then((holidays) => {
             // initialize the materialize datepicker
@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
             });
         })
+
+    // initialize the holiday datepicker
+    let datepicker = document.querySelectorAll('.datepicker');
+    M.Datepicker.init(datepicker, {
+        disableWeekends: true,
+        format: "dd, mmm, yyyy",
+        autoClose: true,
+    })
     // let selectbox = document.getElementById("time");
     // let dateSelect = document.getElementById("date");
     // console.log(selectbox)

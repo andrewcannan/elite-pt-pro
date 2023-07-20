@@ -11,8 +11,8 @@ class User(db.Model):
     is_pt = db.Column(db.Boolean, default=False, nullable=False)
     trainers = db.relationship(
         "Trainers", backref="user", cascade="all, delete", lazy=True)
-    sessions = db.relationship(
-        "Sessions", backref="user", cascade="all, delete", lazy=True)
+    pt_sessions = db.relationship(
+        "PTsessions", backref="user", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # represents itself in the form of a string
@@ -27,8 +27,8 @@ class Trainers(db.Model):
     trainer_name = db.Column(db.String, nullable=False)
     holidays = db.relationship(
         "Holidays", backref="trainers", cascade="all, delete", lazy=True)
-    sessions = db.relationship(
-        "Sessions", backref="trainers", cascade="all, delete", lazy=True)
+    pt_sessions = db.relationship(
+        "PTsessions", backref="trainers", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # represents itself in the form of a string

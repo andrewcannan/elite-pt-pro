@@ -30,7 +30,7 @@
                         <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% elif session.user and not session.pt %}
-                        <li><a href="{{ url_for('book_session') }}">Book a Session</a></li>
+                        <li><a href="{{ url_for('book_pt_session') }}">Book a Session</a></li>
                         <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -48,7 +48,7 @@
                 <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% elif session.user and not session.pt %}
-                <li><a href="{{ url_for('book_session') }}">Book a Session</a></li>
+                <li><a href="{{ url_for('book_pt_session') }}">Book a Session</a></li>
                  <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}

@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, flash, url_for, session, jsonify
 from eliteptpro import app, db
-from eliteptpro.models import User, Trainers, Holidays, Sessions
+from eliteptpro.models import User, Trainers, Holidays, PTsessions
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -174,13 +174,13 @@ def book_pt_session():
 
 
 @app.route("/edit_pt_session/<int:pt_session_id>", methods=["GET", "POST"])
-def edit_pt_session(session_id):
+def edit_pt_session(pt_session_id):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers list that corresponds to the current users id
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
     # retrieve pt session from db or throw 404 if non existent
-    pt_session = PTsessions.query.get_or_404(session_id)
+    pt_session = PTsessions.query.get_or_404(pt_session_id)
     if request.method == "POST":
         # gets trainers id by query with the name selected in the form
         trainer = request.form.get("trainer_name")
@@ -198,15 +198,16 @@ def edit_pt_session(session_id):
     return render_template("edit_pt_session.html", user=user, trainers=trainers, pt_session=pt_session)
 
 
-@app.route("/delete_pt_session/<int:session_id>")
-def delete_pt_session(session_id):
+@app.route("/delete_pt_session/<int:pt_session_id>")
+def delete_pt_session(pt_session_id):
     # deletes pt session from the sessions table in db
-    pt_session = PTsesions.query.get_or_404(session_id)
+    pt_session = PTsessions.query.get_or_404(pt_session_id)
     db.session.delete(pt_session)
     db.session.commit()
-    if session.pt:
+    if session["pt"]:
         return redirect(url_for("pt_sessions", username=session["user"]))
-    return redirect(url_for("my_sessions", username=session["user"]))
+    else:
+        return redirect(url_for("my_sessions", username=session["user"]))
 
 
 @app.route("/search_holidays", methods=["POST"])
