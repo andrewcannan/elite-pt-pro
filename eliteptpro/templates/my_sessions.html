@@ -14,7 +14,7 @@
                       <ul>
                         <li>Trainer: {{ pt_session.trainer_name.capitalize() }}</li>
                         <li>Date: {{ pt_session.date.strftime("%d %B, %Y") }}</li>
-                        <li>Time: {{ pt_session.time.strftime("%-I: %M") }}</li>
+                        <li>Time: {{ pt_session.time.strftime("%H: %M") }}</li>
                         <li>{{ pt_session.description }}</li>
                       </ul>
                     </div>
