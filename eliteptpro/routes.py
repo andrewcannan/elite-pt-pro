@@ -196,8 +196,13 @@ def edit_pt_session(pt_session_id):
         pt_session.time = request.form.get("time"),
         pt_session.description = request.form.get("description")
         db.session.commit()
+
+        if user.is_pt:
+            return redirect(url_for("pt_sessions", username=session["user"]))
+        else:
+            return redirect(url_for("my_sessions", username=session["user"]))
     return render_template("edit_pt_session.html", user=user, 
-        trainers=trainers, pt_session=pt_session, current_trainer=current_trainer)
+        trainers=trainers, pt_session=pt_session)
 
 
 @app.route("/delete_pt_session/<int:pt_session_id>")
