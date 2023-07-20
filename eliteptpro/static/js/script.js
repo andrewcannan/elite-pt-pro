@@ -16,28 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let dropdown = document.querySelectorAll('select');
     M.FormSelect.init(dropdown);
 
-    // pt session datepicker initialization
-    getHolidays()
-        .then((holidays) => {
-            // initialize the materialize datepicker
-            let datepicker = document.querySelectorAll('.datepicker');
-            M.Datepicker.init(datepicker, {
-                disableWeekends: true,
-                format: "dd, mmm, yyyy",
-                autoClose: true,
-                disableDayFn: (date) => {
-                    // convert date to format expected by Materialize CSS (YYYY-MM-DD)
-                    const year = date.getFullYear();
-                    const month = String(date.getMonth() + 1).padStart(2, '0');
-                    const day = String(date.getDate()).padStart(2, '0');
-                    const formattedDate = `${year}-${month}-${day}`;
-
-                    // check if the formatted date is in the holidays array
-                    return holidays.includes(formattedDate);
-                },
-            });
-        })
-
     // initialize the holiday datepicker
     let datepicker = document.querySelectorAll('.datepicker');
     M.Datepicker.init(datepicker, {
@@ -45,11 +23,34 @@ document.addEventListener('DOMContentLoaded', function () {
         format: "dd, mmm, yyyy",
         autoClose: true,
     })
-    // let selectbox = document.getElementById("time");
-    // let dateSelect = document.getElementById("date");
-    // console.log(selectbox)
-    // dateSelect.addEventListener("change", getTimes());
-    getTimes()
+
+    let form = document.getElementById("pt-form");
+    if (form !== null) {
+
+        // pt session datepicker initialization
+        getHolidays()
+            .then((holidays) => {
+                // initialize the materialize datepicker
+                let datepicker = document.querySelectorAll('.datepicker');
+                M.Datepicker.init(datepicker, {
+                    disableWeekends: true,
+                    format: "dd, mmm, yyyy",
+                    autoClose: true,
+                    disableDayFn: (date) => {
+                        // convert date to format expected by Materialize CSS (YYYY-MM-DD)
+                        const year = date.getFullYear();
+                        const month = String(date.getMonth() + 1).padStart(2, '0');
+                        const day = String(date.getDate()).padStart(2, '0');
+                        const formattedDate = `${year}-${month}-${day}`;
+
+                        // check if the formatted date is in the holidays array
+                        return holidays.includes(formattedDate);
+                    },
+                });
+            })
+
+        getTimes()
+    }
 })
 
 
@@ -144,39 +145,3 @@ function getTimes() {
 
     })
 }
-
-// function getTimes() {
-//     let selectedDate = this.value;
-//     let selectedTrainer = document.getElementById("trainer_name").value;
-//     let xhr = new XMLHttpRequest();
-//     xhr.open("POST", "/search_times", true);
-//     xhr.setRequestHeader("Content-Type", "application/json");
-//     xhr.send(JSON.stringify({
-//         "selected_date": selectedDate,
-//         "selected_trainer": selectedTrainer
-//     }));
-//     xhr.onload = function () {
-//         let selectbox = document.getElementById("time");
-//         let response = JSON.parse(xhr.responseText);
-//         let times = response.times;
-//         let openingHours = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
-//         let defaultOption = document.createElement("option");
-//         defaultOption.value = "";
-//         defaultOption.text = "Select a time";
-//         defaultOption.selected = true; // Set as default selected option
-//         defaultOption.disabled = true; // Disable the default option
-//         selectbox.appendChild(defaultOption);
-//         for (let hour of openingHours) {
-//             let option = document.createElement("option");
-//             option.value = hour;
-//             option.text = hour;
-
-//             if (times.includes(hour)) {
-//                 option.disabled = true;
-//             }
-
-//             selectbox.appendChild(option);
-//         }
-//         M.FormSelect.init(selectbox);
-//     }
-// }

@@ -4,7 +4,7 @@
     <h3 class="white-text">Edit your Session</h3>
 </div>
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}">
+    <form id="pt-form" class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}">
         <div class="card-panel grey draken-3">
              <!-- Name input -->
              <div class="row">

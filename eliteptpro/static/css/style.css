@@ -21,13 +21,11 @@ main {
 footer {
     height: 100px;
     padding: 25px;
-    z-index: 1;
 }
 
 /*  Flash message */
 
 #flash {
-    z-index: 1;
     margin-top: 2.5rem;
     }
 
