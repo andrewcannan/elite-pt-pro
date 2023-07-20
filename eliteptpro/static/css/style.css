@@ -11,9 +11,6 @@ main {
 }
 
 /* Navbar */
-header {
-    z-index: 1;
-}
 
 .logo-image {
     width: 7em;
@@ -40,7 +37,7 @@ footer {
 }
 
 .slider {
-    z-index: 0;
+    z-index: -1;
 }
 
 .home-text {
