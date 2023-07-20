@@ -6,11 +6,11 @@
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}">
         <div class="card-panel grey draken-3">
-            <!-- Name input -->
-            <div class="row">
+             <!-- Name input -->
+             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="name" name="name" type="text" class="validate white-text" value="{{ pt_session.name }}" required>
+                    <input id="name" name="name" type="text" class="validate white-text" required>
                     <label for="name" class="white-text">Name</label>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
-                    <input id="date" name="date" type="text" class="datepicker validate" value="{{ pt_session.date }}" required>
+                    <input id="date" name="date" type="text" class="datepicker validate" required>
                     <label for="date" class="white-text">Pick a Date</label>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
-                    <select id="time" name="time" class="validate white-text validate" value="{{ pt_session.time }}" required>
+                    <select id="time" name="time" class="validate white-text validate" required>
                         <!-- Options added with JavaScript -->
                     </select>
                     <label for="time" class="white-text">Pick a Time</label>
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix light-green-text"></i>
-                    <textarea id="description" name="description" class="materialize-textarea validate white-text" value="{{ pt_session.description }}" required></textarea>
+                    <textarea id="description" name="description" class="materialize-textarea validate white-text" required></textarea>
                     <label for="description" class="white-text">Description of Workout</label>
                 </div>
             </div>

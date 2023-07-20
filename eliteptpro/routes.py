@@ -181,6 +181,7 @@ def edit_pt_session(pt_session_id):
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
     # retrieve pt session from db or throw 404 if non existent
     pt_session = PTsessions.query.get_or_404(pt_session_id)
+
     if request.method == "POST":
         # gets trainers id by query with the name selected in the form
         trainer = request.form.get("trainer_name")
@@ -195,16 +196,19 @@ def edit_pt_session(pt_session_id):
         pt_session.time = request.form.get("time"),
         pt_session.description = request.form.get("description")
         db.session.commit()
-    return render_template("edit_pt_session.html", user=user, trainers=trainers, pt_session=pt_session)
+    return render_template("edit_pt_session.html", user=user, 
+        trainers=trainers, pt_session=pt_session, current_trainer=current_trainer)
 
 
 @app.route("/delete_pt_session/<int:pt_session_id>")
 def delete_pt_session(pt_session_id):
+    # get user object that corresponds to the session user
+    user = User.query.filter_by(username=session["user"]).first()
     # deletes pt session from the sessions table in db
     pt_session = PTsessions.query.get_or_404(pt_session_id)
     db.session.delete(pt_session)
     db.session.commit()
-    if session["pt"]:
+    if user.is_pt:
         return redirect(url_for("pt_sessions", username=session["user"]))
     else:
         return redirect(url_for("my_sessions", username=session["user"]))
