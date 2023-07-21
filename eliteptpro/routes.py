@@ -74,8 +74,13 @@ def login():
                 else:
                     session.pop("pt", None)
                 flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for(
-                    "my_sessions", username=session["user"]))
+                # redirect admin to manage page
+                if session["user"] == "admin":
+                    return redirect(url_for("manage"))
+                # redirect normal user to sessions
+                else:
+                    return redirect(url_for(
+                        "my_sessions", username=session["user"]))
 
             # if password is incorrect
             else:
@@ -274,4 +279,22 @@ def manage():
         selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
         trainer_name = selected_trainer.trainer_name
         holiday.trainer_name = trainer_name
-    return render_template("manage.html", users=users, pt_sessions=pt_sessions, holidays=holidays, trainers=trainers)
+    return render_template("manage.html", users=users,
+         pt_sessions=pt_sessions, holidays=holidays, trainers=trainers)
+
+
+@app.route("/edit_user/<int:user_id>", methods=["GET", "POST"])
+def edit_user(user_id):
+    # get user object that corresponds to the user id
+    user = User.query.filter_by(id=user_id).first()
+
+    if request.method == "POST":
+        user.username = request.form.get("username")
+        user.fname = request.form.get("fname")
+        user.lname = request.form.get("lname")
+        user.password = user.password
+        user.is_pt = bool(True if request.form.get("is_pt") else False)
+        db.session.commit()
+        return redirect(url_for("manage"))
+    
+    return render_template("edit_user.html", user=user)
