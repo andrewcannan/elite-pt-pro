@@ -26,16 +26,17 @@
                 <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('manage') }}">Manage</a></li>
                     {% if session.pt %}
-                        <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% elif session.user and not session.pt %}
-                        <li><a href="{{ url_for('book_pt_session') }}">Book a Session</a></li>
-                        <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    <li><a href="{{ url_for('book_pt_session') }}">Book a Session</a></li>
+                    <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -44,30 +45,31 @@
         <!-- Mobile NavBar -->
         <ul class="sidenav right" id="mobile-nav">
             <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('manage') }}">Manage</a></li>
             {% if session.pt %}
-                <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% elif session.user and not session.pt %}
-                <li><a href="{{ url_for('book_pt_session') }}">Book a Session</a></li>
-                 <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="{{ url_for('book_pt_session') }}">Book a Session</a></li>
+            <li><a href="{{ url_for('my_sessions', username=session['user']) }}">My Sessions</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             {% endif %}
         </ul>
     </header>
 
     <!-- Flash messages -->
-    <section id="flash" >
+    <section id="flash">
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="grey darken-3 white-text center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="grey darken-3 white-text center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
 

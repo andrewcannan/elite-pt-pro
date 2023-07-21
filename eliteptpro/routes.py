@@ -102,13 +102,12 @@ def my_sessions(username):
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     pt_sessions = PTsessions.query.filter_by(user_id=user.id).all()
-    print(pt_sessions)
     for pt_session in pt_sessions:
         trainer_id = pt_session.trainer_id
         selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
         trainer_name = selected_trainer.trainer_name
         pt_session.trainer_name = trainer_name
-    return render_template("my_sessions.html", user=user, pt_sessions=pt_sessions, trainer_name=trainer_name)
+    return render_template("my_sessions.html", user=user, pt_sessions=pt_sessions)
 
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
@@ -253,3 +252,26 @@ def search_times():
     times = [pt_session.time for pt_session in pt_sessions]
     times_string = [time.strftime('%H:%M') for time in times]
     return jsonify({'times': times_string})
+
+
+@app.route("/manage", methods=["GET"])
+def manage():
+    # retrieve list of all users in db
+    users = User.query.order_by(User.username).all()
+    # retrieve list of all trainers in db
+    trainers = Trainers.query.order_by(Trainers.trainer_name).all()
+    # retrieve list of all pt sessions in db
+    pt_sessions = PTsessions.query.order_by(PTsessions.date).all()
+    for pt_session in pt_sessions:
+        trainer_id = pt_session.trainer_id
+        selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
+        trainer_name = selected_trainer.trainer_name
+        pt_session.trainer_name = trainer_name
+    # retrieve list of all holidays in db
+    holidays = Holidays.query.order_by(Holidays.date).all()
+    for holiday in holidays:
+        trainer_id = holiday.trainer_id
+        selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
+        trainer_name = selected_trainer.trainer_name
+        holiday.trainer_name = trainer_name
+    return render_template("manage.html", users=users, pt_sessions=pt_sessions, holidays=holidays, trainers=trainers)

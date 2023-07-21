@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row center-align">
+    <h3 class="white-text">Manage</h3>
+</div>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-2">
+            <span class="card-title white-text"><h5>Users</h5></span>
+            <table class="white-text responsive-table highlight">
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Are a Personal Trainer?</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.fname }}</td>
+                    <td>{{ user.lname }}</td>
+                    <td>{{ user.is_pt }}</td>
+                    <td><a href="#"
+                        class="btn light-green accent-4">Edit</a></td>
+                    <td><a href="#"
+                            class="btn red">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-2">
+            <span class="card-title white-text"><h5>Trainers</h5></span>
+            <table class="white-text responsive-table highlight">
+                <tr>
+                    <th>Trainer Name</th>
+                    <th>Delete</th>
+                </tr>
+                {% for trainer in trainers %}
+                <tr>
+                    <td>{{ trainer.trainer_name.capitalize() }}</td>
+                    <td><a href="#"
+                            class="btn red">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-2">
+            <span class="card-title white-text"><h5>PT Sessions</h5></span>
+            <table class="white-text responsive-table highlight">
+                <tr>
+                    <th>Member Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Trainer Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                {% for pt_session in pt_sessions %}
+                <tr>
+                    <td>{{ pt_session.name.capitalize() }}</td>
+                    <td>{{ pt_session.date.strftime("%d %B, %Y") }}</td>
+                    <td>{{ pt_session.time.strftime("%H: %M") }}</td>
+                    <td>{{ pt_session.trainer_name.capitalize() }}</td>
+                    <td><a href="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}"
+                            class="btn light-green accent-4">Edit</a></td>
+                    <td><a href="{{ url_for('delete_pt_session', pt_session_id=pt_session.id) }}"
+                            class="btn red">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-2">
+            <span class="card-title white-text"><h5>Holidays</h5></span>
+            <table class="white-text responsive-table highlight">
+                <tr>
+                    <th>Trainer Name</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+                {% for holiday in holidays %}
+                <tr>
+                    <td>{{ holiday.trainer_name.capitalize() }}</td>
+                    <td>{{ holiday.date.strftime("%d %B, %Y") }}</td>
+                    <td><a href="{{ url_for('delete_holiday', holiday_id=holiday.id) }}"
+                            class="btn red">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
