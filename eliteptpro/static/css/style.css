@@ -44,10 +44,9 @@ footer {
     background-color: rgba(0, 0, 0, .5);
 }
 
-.disabled-option {
-    color: #ccc;
-    pointer-events: none;
-  }
+#book-btn {
+    margin-bottom: 20px;
+}
 
 .holiday-list-item {
     padding-top: 5px;
