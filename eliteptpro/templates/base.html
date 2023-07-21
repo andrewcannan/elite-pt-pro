@@ -26,8 +26,10 @@
                 <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                    {% if session.user == "admin" %}
                     <li><a href="{{ url_for('manage') }}">Manage</a></li>
-                    {% if session.pt %}
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% elif session.pt %}
                     <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% elif session.user and not session.pt %}
@@ -45,8 +47,10 @@
         <!-- Mobile NavBar -->
         <ul class="sidenav right" id="mobile-nav">
             <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% if session.user == "admin" %}
             <li><a href="{{ url_for('manage') }}">Manage</a></li>
-            {% if session.pt %}
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% elif session.pt %}
             <li><a href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% elif session.user and not session.pt %}
