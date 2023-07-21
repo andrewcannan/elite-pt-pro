@@ -306,3 +306,11 @@ def delete_user(user_id):
     db.session.delete(user)
     db.session.commit()
     return redirect(url_for("manage"))
+
+
+@app.route("/delete_trainer/<int:trainer_id>")
+def delete_trainer(trainer_id):
+    trainer = Trainers.query.get_or_404(trainer_id)
+    db.session.delete(trainer)
+    db.session.commit()
+    return redirect(url_for("manage"))

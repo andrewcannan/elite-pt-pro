@@ -46,7 +46,7 @@
                 {% for trainer in trainers %}
                 <tr>
                     <td>{{ trainer.trainer_name.capitalize() }}</td>
-                    <td><a href="#"
+                    <td><a href="{{ url_for('delete_trainer', trainer_id=trainer.id) }}"
                             class="btn red">Delete</a></td>
                 </tr>
                 {% endfor %}
