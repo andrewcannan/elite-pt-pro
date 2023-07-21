@@ -261,8 +261,9 @@ def search_times():
 
 @app.route("/manage", methods=["GET"])
 def manage():
-    # retrieve list of all users in db
-    users = User.query.order_by(User.username).all()
+    # retrieve list of all users in db excluding admin
+    users = User.query.filter(User.username != "admin").order_by(
+        User.username).all()
     # retrieve list of all trainers in db
     trainers = Trainers.query.order_by(Trainers.trainer_name).all()
     # retrieve list of all pt sessions in db
