@@ -298,3 +298,11 @@ def edit_user(user_id):
         return redirect(url_for("manage"))
     
     return render_template("edit_user.html", user=user)
+
+
+@app.route("/delete_user/<int:user_id>")
+def delete_user(user_id):
+    user = User.query.get_or_404(user_id)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for("manage"))

@@ -25,7 +25,7 @@
                     <td>{{ user.is_pt }}</td>
                     <td><a href="{{ url_for('edit_user', user_id=user.id) }}"
                         class="btn light-green accent-4">Edit</a></td>
-                    <td><a href="#"
+                    <td><a href="{{ url_for('delete_user', user_id=user.id) }}"
                             class="btn red">Delete</a></td>
                 </tr>
                 {% endfor %}
