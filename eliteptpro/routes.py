@@ -288,7 +288,6 @@ def manage():
 def edit_user(user_id):
     # get user object that corresponds to the user id
     user = User.query.filter_by(id=user_id).first()
-
     if request.method == "POST":
         user.username = request.form.get("username")
         user.fname = request.form.get("fname")

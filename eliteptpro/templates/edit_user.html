@@ -45,7 +45,7 @@
                     <div class="switch">
                         <i class="fa-solid fa-question prefix light-green-text"></i>
                         <label for="is_pt" class="white-text">
-                            <input id="is_pt" name="is_pt" type="checkbox" required>
+                            <input id="is_pt" name="is_pt" type="checkbox">
                             <span class="lever"></span>
                             Are you a personal trainer?</label>
                     </div>
@@ -54,9 +54,19 @@
             </div>
             <!-- Edit button -->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green white-text text-shadow">
+                <button data-target="modal2" class="col s12 btn-large light-green white-text text-shadow modal-trigger">
                     Edit <i class="fa-solid fa-share-from-square"></i>
                 </button>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <p>Are you sure you want to apply these changes?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Agree</button>
             </div>
         </div>
     </form>
