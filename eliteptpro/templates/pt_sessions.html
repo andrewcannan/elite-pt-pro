@@ -4,6 +4,7 @@
     <h3 class="white-text">{{ user.fname.capitalize() }}'s Sessions</h3>
 </div>
 
+<!-- PT Sessions display -->
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel grey">
@@ -20,10 +21,21 @@
                             </ul>
                         </div>
                         <div class="card-action">
-                            <a href="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}" class="btn light-green accent-4">Edit</a>
-                            <a href="{{ url_for('delete_pt_session', pt_session_id=pt_session.id) }}"
-                                class="btn red">Delete</a>
+                            <a href="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}"
+                                class="btn light-green accent-4">Edit</a>
+                            <a href="#modal4" class="btn red modal-trigger">Delete</a>
                         </div>
+                    </div>
+                </div>
+                <!-- Modal Structure -->
+                <div id="modal4" class="modal">
+                    <div class="modal-content">
+                        <p>Are you sure you want to apply these changes?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        <a href="{{ url_for('delete_pt_session', pt_session_id=pt_session.id) }}"
+                            class="modal-close waves-effect waves-green btn-flat">Delete</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -32,6 +44,8 @@
         </div>
     </div>
 </div>
+
+<!-- Add Holiday Button -->
 <div class="row">
     <div class="row">
         <div class="col s12 m8 offset-m2 center-align">
@@ -40,6 +54,8 @@
                     class="fa-solid fa-plus"></i></a>
         </div>
     </div>
+
+    <!-- Holidays display -->
     <div class="row">
         <div class="col s12 m8 offset-m2">
             <div class="card-panel grey">
@@ -50,9 +66,18 @@
                                 <span class="card-title">Holidays</span>
                                 <ul>
                                     {% for holiday in holidays %}
-                                    <li class="holiday-list-item">{{ holiday.date.strftime("%d %B, %Y") }} <a
-                                            href="{{ url_for('delete_holiday', holiday_id=holiday.id) }}"
-                                            class="btn red">Delete</a></li>
+                                    <li class="holiday-list-item">{{ holiday.date.strftime("%d %B, %Y") }} <a href="#modal5" class="btn red modal-trigger">Delete</a></li>
+                                    <!-- Modal Structure -->
+                                    <div id="modal5" class="modal">
+                                        <div class="modal-content black-text left-align">
+                                            <p>Are you sure you want to apply these changes?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                            <a href="{{ url_for('delete_holiday', holiday_id=holiday.id) }}"
+                                                class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                                        </div>
+                                    </div>
                                     {% endfor %}
                                 </ul>
                             </div>
