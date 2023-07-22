@@ -63,4 +63,8 @@ footer {
         height: 100px;
         padding-top: 15px;
     }
+
+    .home-text {
+        margin-top: 80px;
+    }
 }
