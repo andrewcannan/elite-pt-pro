@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
         autoClose: true,
     })
 
+    let modal = document.querySelectorAll('.modal');
+    M.Modal.init(modal);
+
     let form = document.getElementById("pt-form");
     if (form !== null) {
 
