@@ -166,3 +166,14 @@ Wireframes created using balsamiq.
 </details>
 <br><br>
 
+## Database Schema
+
+Schema for PostgreSQL database was created on [Diagrams.net](https://app.diagrams.net/)
+<details>
+<summary>DB Schema</summary>
+<br>
+<img src="eliteptpro/docs/readme-images/db-scherma.png">
+</details>
+<br><br>
+
+
