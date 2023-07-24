@@ -1,39 +1,168 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Elite PT Pro**
 
-Welcome,
+This website was created as the 3rd Milestone Project for Code Institute's web application development course.
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[**__link to deployed site here__**](#)
+<br><br>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
+respnsive mockup here
+<img src="">
+<br><br>
 
-## Codeanywhere Reminders
+# Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+* [User Experience](#user-experience-ux)
+    * [Owner Goals](#owners-goals)
+    * [Visitor Goals](#visitor-goals)
+* [Design](#design)
+    * [Wireframes](#wireframes)
 
-`python3 -m http.server`
+<br><br>
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+# User Experience
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+A local gym "Elite Fitness" require an app for their members to easily book and manage PT sessions, and for thier Personal trainers to keep a track of upcoming sessions.
+<br><br>
 
-`http_server`
+## Owners Goals
+- Give my small gym clients a system to book 1 hour pt sessions
+- Give my pt employees a system to track booked sessions
+<br><br>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Visitor Goals
+As user:
+- I want to immediately identify the purpose of the site
+- I want navigation to be simple and intuitive
+- I want to be able to view the site on any device
+- I want to be able to easily navigate to the homepage incase of broken link or site error
+<br><br>
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+As a logged out user: 
+- I want to be able to login/signup to the service
+<br><br>
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+As a logged in gym member user:
+- I want to be able to book a 1 hour pt session
+- I want to be able to see sessions I have currently booked and edit/delete them
+<br><br>
 
-To log into the Heroku toolbelt CLI:
+As an employee/pt user:
+- I want to be able to see what sessions users have booked with me
+- I want to be able to set days that im unavailable for
+- I want to be able to edit/delete user sessions I cannot make
+<br><br>
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+As a managment user
+- I want to be able to add/edit users both members of gym and trainers
+- I want to be able to manage Holidays of the trainers
+- I want to be able to see all session booked with pt employees and edit/delete them
+<br><br>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+# Design
 
----
+## WireFrames 
 
-Happy coding!
+Wireframes created using balsamiq.
+
+<details>
+<summary>Homepage Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/homepage-desktop.png">
+</details>
+<details>
+<summary>Homepage Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/homepage-mobile.png">
+</details>
+<details>
+<summary>Register Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/register-desktop.png">
+</details>
+<details>
+<summary>Register Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/register-mobile.png">
+</details>
+<details>
+<summary>Login Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/login-desktop.png">
+</details>
+<details>
+<summary>Login Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/login-mobile.png">
+</details>
+<details>
+<summary>My Sessions Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/my-sessions-desktop.png">
+</details>
+<details>
+<summary>My Sessions Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/my-sessions-mobile.png">
+</details>
+<details>
+<summary>PT Sessions Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/pt-sessions-desktop.png">
+</details>
+<details>
+<summary>PT Sessions Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/pt-sessions-mobile.png">
+</details>
+<details>
+<summary>Book/Edit Session Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/book-session-desktop.png">
+</details>
+<details>
+<summary>Book/Edit Session Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/book-session-mobile.png">
+</details>
+<details>
+<summary>Add/Edit Holiday Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/book-session-desktop.png">
+</details>
+<details>
+<summary>Add/Edit Holiday Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/book-session-mobile.png">
+</details>
+<details>
+<summary>Add/Edit Holiday Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/holiday-form-desktop.png">
+</details>
+<details>
+<summary>Add/Edit Holiday Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/holiday-form-mobile.png">
+</details>
+<details>
+<summary>Add/Edit Holiday Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/holiday-form-desktop.png">
+</details>
+<details>
+<summary>Add/Edit Holiday Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/holiday-form-mobile.png">
+</details>
+<details>
+<summary>Management Desktop</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/manage-desktop.png">
+</details>
+<details>
+<summary>Management Mobile</summary>
+<br>
+<img src="eliteptpro/docs/wireframes/manage-mobile.png">
+</details>
+<br><br>
+
