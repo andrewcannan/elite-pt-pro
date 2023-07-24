@@ -16,6 +16,8 @@ respnsive mockup here
     * [Visitor Goals](#visitor-goals)
 * [Design](#design)
     * [Wireframes](#wireframes)
+    * [Materialize](#materialize)
+    * [Images](#images)
 
 <br><br>
 
@@ -174,6 +176,16 @@ Schema for PostgreSQL database was created on [Diagrams.net](https://app.diagram
 <br>
 <img src="eliteptpro/docs/readme-images/db-scherma.png">
 </details>
+<br><br>
+
+## Materialize
+
+Materialize CSS was used and customized for the main part of the front-end development.
+<br><br> 
+
+## Images 
+
+All images were sourced from [Unsplash](https://unsplash.com/), [Convertio](https://convertio.co/) was used to convert the images into webp and [TinyPNG](https://tinypng.com/) to compress the image even further. Main Logo in the Header was created in Adobe.
 <br><br>
 
 
