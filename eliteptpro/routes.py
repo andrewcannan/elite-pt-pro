@@ -185,13 +185,18 @@ def book_pt_session():
 
 @app.route("/edit_pt_session/<int:pt_session_id>", methods=["GET", "POST"])
 def edit_pt_session(pt_session_id):
+    """
+    Edit instance of pt session in database
+    - params:
+        int: pt_session_id
+    """
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers list that corresponds to the current users id
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
     # retrieve pt session from db or throw 404 if non existent
     pt_session = PTsessions.query.get_or_404(pt_session_id)
-
+    
     if request.method == "POST":
         # gets trainers id by query with the name selected in the form
         trainer = request.form.get("trainer_name")
