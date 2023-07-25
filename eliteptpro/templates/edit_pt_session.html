@@ -3,6 +3,34 @@
 <div class="row center-align">
     <h3 class="white-text">Edit your Session</h3>
 </div>
+<!-- Row displaying current booking -->
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel grey darken-2">
+            <span class="card-title white-text">
+                <h5>Current booking details</h5>
+            </span>
+            <table class="white-text responsive-table highlight">
+                <tr>
+                    <th>Name</th>
+                    <th>Trainer Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Description</th>
+                </tr>
+                
+                <tr>
+                    <td>{{ pt_session.name.capitalize() }}</td>
+                    <td>{{ pt_session.trainer_name.capitalize() }}</td>
+                    <td>{{ pt_session.date.strftime("%d %B, %Y") }}</td>
+                    <td>{{ pt_session.time.strftime("%H: %M") }}</td>
+                    <td>{{ pt_session.description }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Booking form -->
 <div class="row">
     <form id="pt-form" class="col s12 m8 offset-m2" method="POST"
         action="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}">

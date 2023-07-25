@@ -226,7 +226,12 @@ def edit_pt_session(pt_session_id):
     trainers = list(Trainers.query.order_by(Trainers.trainer_name).all())
     # retrieve pt session from db or throw 404 if non existent
     pt_session = PTsessions.query.get_or_404(pt_session_id)
-
+    # add trainers name to pt_session for displaying
+    trainer_id = pt_session.trainer_id
+    selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
+    trainer_name = selected_trainer.trainer_name
+    pt_session.trainer_name = trainer_name
+    
     if request.method == "POST":
         # gets trainers id by query with the name selected in the form
         trainer = request.form.get("trainer_name")
