@@ -104,6 +104,11 @@ def logout():
 
 @app.route("/my_sessions/<username>", methods=["GET", "POST"])
 def my_sessions(username):
+    """
+    Queries database to populate and display members page
+    - params:
+        string: username
+    """
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     pt_sessions = PTsessions.query.filter_by(user_id=user.id).all()
