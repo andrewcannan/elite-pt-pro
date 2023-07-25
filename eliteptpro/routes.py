@@ -130,12 +130,15 @@ def pt_sessions(username):
 
 @app.route("/holiday", methods=["GET", "POST"])
 def holiday():
+    """
+    Add new instance of holiday to database
+    """
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers object that corresponds to the current users id
     trainer = Trainers.query.filter_by(user_id=user.id).first()
     if request.method == "POST":
-        # create ne instance of a holiday and add to db
+        # create new instance of a holiday and add to db
         new_holiday = Holidays(
             trainer_id=trainer.id,
             date=request.form.get("date")
