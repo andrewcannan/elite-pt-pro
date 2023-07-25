@@ -244,9 +244,11 @@ def search_holidays():
 
 @app.route("/search_times", methods=["POST"])
 def search_times():
-    # get name of trainer and date from json, retrieve trainer id using name
-    # and query sessions table to retrieve list of times for selected trainer
-    # for that specific date
+    """
+    Get name of trainer and date from json, retrieve trainer id using name
+    and query sessions table to retrieve list of times for selected trainer
+    for that specific date
+    """
     selected_trainer = request.json["selected_trainer"]
     selected_trainer_id = Trainers.query.filter_by(
         trainer_name=selected_trainer).first()
