@@ -261,9 +261,14 @@ def search_times():
 
 @app.route("/manage", methods=["GET"])
 def manage():
+    """
+    Queries database to return data to populate and display manage page
+    """
+    if "user" not in session or session["user"] != "admin":
+        flash("You do not have permission to view admin page")
+        return redirect(url_for("home"))
     # retrieve list of all users in db excluding admin
-    users = User.query.filter(User.username != "admin").order_by(
-        User.username).all()
+    users = User.query.filter(User.username != "admin").order_by(User.username).all()
     # retrieve list of all trainers in db
     trainers = Trainers.query.order_by(Trainers.trainer_name).all()
     # retrieve list of all pt sessions in db
