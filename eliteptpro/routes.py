@@ -54,6 +54,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Handles login of user and redirects based on session cookies
+    """
     if request.method == "POST":
         # check if username is in db
         existing_user = User.query.filter(
