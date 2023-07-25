@@ -11,6 +11,10 @@ def home():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Adds new instance of user to database if not already existing.
+    Checks if new user is a trainer and adds to trainers table.
+    """
     if request.method == "POST":
         # check if username already exists
         existing_user = User.query.filter(
