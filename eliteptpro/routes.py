@@ -117,6 +117,11 @@ def my_sessions(username):
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
 def pt_sessions(username):
+    """
+    Queries database to populate and display trainers page
+    - params:
+        string: username
+    """
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
     # get trainers object that corresponds to the current users id
