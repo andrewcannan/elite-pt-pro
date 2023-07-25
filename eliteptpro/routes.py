@@ -231,8 +231,10 @@ def delete_pt_session(pt_session_id):
 
 @app.route("/search_holidays", methods=["POST"])
 def search_holidays():
-    # get name of trainer from json sent and use that to return a list of dates
-    # booked as holidays by that trainer
+    """
+    Get name of trainer from json sent and use that to return a list of dates
+    booked as holidays by that trainer
+    """
     selected_trainer = request.json["selected_trainer"]
     selected_trainer_id = Trainers.query.filter_by(
         trainer_name=selected_trainer).first()
