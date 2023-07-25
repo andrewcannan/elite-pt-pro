@@ -302,10 +302,19 @@ def edit_user(user_id):
 
 @app.route("/delete_user/<int:user_id>")
 def delete_user(user_id):
-    user = User.query.get_or_404(user_id)
-    db.session.delete(user)
-    db.session.commit()
-    return redirect(url_for("manage"))
+    """
+    Deletes user from database
+    - params:
+        int: user_id
+    """
+    if "user" not in session or session["user"] != "admin":
+        flash("You do not have permission to delete user")
+        return redirect(url_for("home"))
+    else:
+        user = User.query.get_or_404(user_id)
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for("manage"))
 
 
 @app.route("/delete_trainer/<int:trainer_id>")
