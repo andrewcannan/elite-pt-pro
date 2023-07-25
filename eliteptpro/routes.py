@@ -310,7 +310,17 @@ def delete_user(user_id):
 
 @app.route("/delete_trainer/<int:trainer_id>")
 def delete_trainer(trainer_id):
-    trainer = Trainers.query.get_or_404(trainer_id)
-    db.session.delete(trainer)
-    db.session.commit()
-    return redirect(url_for("manage"))
+    """
+    Deletes trainer from database
+    - params:
+        int: trainer_id
+    """
+    if "user" not in session or session["user"] != "admin":
+        flash("You do not have permission to delete trainer")
+        return redirect(url_for("home"))
+    else:
+        trainer = Trainers.query.get_or_404(trainer_id)
+        db.session.delete(trainer)
+        db.session.commit()
+        return redirect(url_for("manage"))
+        
