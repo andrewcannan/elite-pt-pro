@@ -286,8 +286,17 @@ def manage():
 
 @app.route("/edit_user/<int:user_id>", methods=["GET", "POST"])
 def edit_user(user_id):
+    """
+    Edits instance of user in database
+    - params:
+        int: user_id
+    """
     # get user object that corresponds to the user id
     user = User.query.filter_by(id=user_id).first()
+    if "user" not in session or session["user"] != "admin":
+        flash("You do not have permission to edit user")
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         user.username = request.form.get("username")
         user.fname = request.form.get("fname")
