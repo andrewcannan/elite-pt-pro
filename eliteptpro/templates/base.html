@@ -12,6 +12,8 @@
         type="text/css">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
     <title>Elite PT Pro</title>
 </head>
 
@@ -21,7 +23,8 @@
         <nav id="my-nav" class="grey darken-3">
             <div class="nav-wrapper">
                 <a href="{{ url_for('home') }}" class="brand-logo logo-image">
-                    <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}" alt="elite fitness app logo">
+                    <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}"
+                        alt="elite fitness app logo">
                 </a>
                 <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
@@ -90,12 +93,13 @@
                 For educational purposes only
             </div>
             <div class="col s12 m3 white-text text-lighten-4 center-align">
-                <a class="white-text text-lighten-4" href="https://github.com/andrewcannan" target="_blank" rel="noopener">GitHub
+                <a class="white-text text-lighten-4" href="https://github.com/andrewcannan" target="_blank"
+                    rel="noopener">GitHub
                     Profile <i class="fa-brands fa-github"></i></a>
             </div>
             <div class="col s12 m3 white-text text-lighten-4 center-align">
-                <a class="white-text text-lighten-4" href="https://www.linkedin.com/in/andrew-cannan/"
-                    target="_blank" rel="noopener">LinkedIn
+                <a class="white-text text-lighten-4" href="https://www.linkedin.com/in/andrew-cannan/" target="_blank"
+                    rel="noopener">LinkedIn
                     Profile <i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
