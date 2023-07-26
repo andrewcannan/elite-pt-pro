@@ -264,10 +264,16 @@ def delete_pt_session(pt_session_id):
     user = User.query.filter_by(username=session["user"]).first()
     # deletes pt session from the sessions table in db
     pt_session = PTsessions.query.get_or_404(pt_session_id)
+    if user.id != pt_session.user_id and (session["user"] != "admin") and (user.is_pt != True):
+        flash("you do not have permission to delete this training session")
+        return redirect(url_for("home"))
+
     db.session.delete(pt_session)
     db.session.commit()
     if user.is_pt:
         return redirect(url_for("pt_sessions", username=session["user"]))
+    elif session["user"] == "admin":
+        return redirect(url_for("manage"))
     else:
         return redirect(url_for("my_sessions", username=session["user"]))
 
