@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row center-align">
-    <h3 class="white-text">Edit User</h3>
+    <h3 class="black-text">Edit User</h3>
 </div>
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_user', user_id=user.id) }}">
-        <div class="card-panel grey draken-3">
+        <div class="card-panel grey">
             <!-- Username input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="username" name="username" type="text" class="validate white-text" value="{{ user.username }}" required>
-                    <label for="username" class="white-text">Username</label>
+                    <input id="username" name="username" type="text" class="validate black-text" value="{{ user.username }}" required>
+                    <label for="username" class="black-text">Username</label>
                 </div>
             </div>
             <!-- First Name input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="fname" name="fname" type="text" class="validate white-text" value="{{ user.fname }}" required>
-                    <label for="fname" class="white-text">First Name</label>
+                    <input id="fname" name="fname" type="text" class="validate black-text" value="{{ user.fname }}" required>
+                    <label for="fname" class="black-text">First Name</label>
                 </div>
             </div>
             <!-- Last Name input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="lname" name="lname" type="text" class="validate white-text" value="{{ user.lname }}" required>
-                    <label for="lname" class="white-text">Last Name</label>
+                    <input id="lname" name="lname" type="text" class="validate black-text" value="{{ user.lname }}" required>
+                    <label for="lname" class="wblack-text">Last Name</label>
                 </div>
             </div>
             <!-- Trainer switch -->
@@ -36,15 +36,14 @@
                     {% if user.is_pt == True %}
                     <div class="switch">
                         <i class="fa-solid fa-question prefix light-green-text"></i>
-                        <label for="is_pt" class="white-text">
+                        <label for="is_pt" class="black-text">
                             <input id="is_pt" name="is_pt" type="checkbox" required checked>
-                            <span class="lever"></span>
-                            Are you a personal trainer?</label>
+                            No <span class="lever"></span>Yes &nbsp; &nbsp; Are you a personal trainer?</label>
                     </div>
                     {% else %}
                     <div class="switch">
                         <i class="fa-solid fa-question prefix light-green-text"></i>
-                        <label for="is_pt" class="white-text">
+                        <label for="is_pt" class="black-text">
                             <input id="is_pt" name="is_pt" type="checkbox">
                             <span class="lever"></span>
                             Are you a personal trainer?</label>
@@ -54,7 +53,7 @@
             </div>
             <!-- Edit button -->
             <div class="row">
-                <button data-target="modal2" class="col s12 btn-large light-green white-text text-shadow modal-trigger">
+                <button data-target="modal2" class="col s12 btn-large light-green black-text text-shadow modal-trigger">
                     Edit <i class="fa-solid fa-share-from-square"></i>
                 </button>
             </div>
