@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row center-align">
-    <h3 class="white-text">Add Holiday</h3>
+    <h3 class="black-text">Add Holiday</h3>
 </div>
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('holiday') }}">
-        <div class="card-panel grey draken-3">
+        <div class="card-panel grey">
             <!-- Datepicker -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
                     <input id="date" name="date" type="text" class="datepicker validate" required>
-                    <label for="date" class="white-text">Pick a Date</label>
+                    <label for="date" class="black-text">Pick a Date</label>
                 </div>
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green white-text text-shadow">
+                <button type="submit" class="col s12 btn-large light-green black-text text-shadow">
                     Submit <i class="fa-solid fa-share-from-square"></i>
                 </button>
             </div>
