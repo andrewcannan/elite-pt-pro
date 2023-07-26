@@ -10,6 +10,10 @@ main {
     width: 100%;
 }
 
+h1 {
+    font-size: 2.5rem;
+}
+
 /* Navbar */
 
 .logo-image {

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row center-align">
-  <h3 class="white-text">{{ user.fname.capitalize() }}'s Sessions</h3>
+  <h1 class="black-text">{{ user.fname.capitalize() }}'s Sessions</h3>
 </div>
 <div class="row">
   <div class="col s12 m8 offset-m2">
@@ -20,8 +20,8 @@
             </div>
             <div class="card-action">
               <a href="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}"
-                class="btn light-green accent-4">Edit</a>
-              <a href="#modal3" class="btn red modal-trigger">Delete</a>
+                class="btn light-green accent-4 black-text">Edit</a>
+              <a href="#modal3" class="btn red modal-trigger black-text">Delete</a>
             </div>
           </div>
         </div>
