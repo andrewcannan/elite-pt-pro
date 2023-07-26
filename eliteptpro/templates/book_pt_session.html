@@ -1,30 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row center-align">
-    <h3 class="white-text">Book a Session</h3>
+    <h1 class="black-text">Book a Session</h3>
 </div>
 <div class="row">
     <form id="pt-form" class="col s12 m8 offset-m2" method="POST" action="{{ url_for('book_pt_session') }}">
-        <div class="card-panel grey draken-3">
+        <div class="card-panel grey">
             <!-- Name input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="name" name="name" type="text" class="validate white-text" required>
-                    <label for="name" class="white-text">Name</label>
+                    <input id="name" name="name" type="text" class="validate black-text" required>
+                    <label for="name" class="black-text">Name</label>
                 </div>
             </div>
             <!-- Trainer dropdown list -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-person prefix light-green-text"></i>
-                    <select id="trainer_name" name="trainer_name" class="validate white-text" required>
+                    <select id="trainer_name" name="trainer_name" class="validate black-text" required>
                         <option value="" disabled selected></option>
                         {% for trainer in trainers %}
                         <option>{{ trainer.trainer_name }}</option>
                         {% endfor %}
                     </select>
-                    <label for="trainer_name" class="white-text">Personal Trainer</label>
+                    <label for="trainer_name" class="black-text">Personal Trainer</label>
                 </div>
             </div>
             <!-- Datepicker -->
@@ -32,30 +32,30 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
                     <input id="date" name="date" type="text" class="datepicker validate" required>
-                    <label for="date" class="white-text">Pick a Date</label>
+                    <label for="date" class="black-text">Pick a Date</label>
                 </div>
             </div>
             <!-- Times dropdown -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
-                    <select id="time" name="time" class="validate white-text validate" required>
+                    <select id="time" name="time" class="validate black-text validate" required>
                         <!-- Options added with JavaScript -->
                     </select>
-                    <label for="time" class="white-text">Pick a Time</label>
+                    <label for="time" class="black-text">Pick a Time</label>
                 </div>
             </div>
             <!-- Description Input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix light-green-text"></i>
-                    <textarea id="description" name="description" class="materialize-textarea validate white-text" required></textarea>
-                    <label for="description" class="white-text">Description of Workout</label>
+                    <textarea id="description" name="description" class="materialize-textarea validate black-text" required></textarea>
+                    <label for="description" class="black-text">Description of Workout</label>
                 </div>
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green white-text text-shadow">
+                <button type="submit" class="col s12 btn-large light-green black-text text-shadow">
                     Submit <i class="fa-solid fa-share-from-square"></i>
                 </button>
             </div>
