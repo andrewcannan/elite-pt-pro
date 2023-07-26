@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row center-align">
-    <h3 class="white-text">Log In</h3>
+    <h3 class="black-text">Log In</h3>
 </div>
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
@@ -10,21 +10,21 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-user-plus prefix light-green-text"></i>
-                    <input id="username" name="username" type="text" class="validate white-text" required>
-                    <label for="username" class="white-text">Username</label>
+                    <input id="username" name="username" type="text" class="validate black-text" required>
+                    <label for="username" class="black-text">Username</label>
                 </div>
             </div>
             <!-- Password input -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-lock prefix light-green-text"></i>
-                    <input id="password" name="password" type="password" class="validate white-text" required>
-                    <label for="password" class="white-text">Password</i></label>
+                    <input id="password" name="password" type="password" class="validate black-text" required>
+                    <label for="password" class="black-text">Password</i></label>
                 </div>
             </div>
             <!-- Log In button -->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green white-text text-shadow">
+                <button type="submit" class="col s12 btn-large light-green black-text text-shadow">
                     Log In <i class="fa-solid fa-share-from-square"></i>
                 </button>
             </div>
@@ -33,7 +33,7 @@
     <!-- Not registered link -->
     <div class="row">
         <div class="col s12 center-align">
-            <p class="white-text flow-text">Not registered? <a href="{{ url_for('register') }}">Register</a></p>
+            <p class="black-text flow-text">Not registered? <a href="{{ url_for('register') }}" class="blue-text text-darken-3">Register</a></p>
         </div>
     </div>
 </div>
