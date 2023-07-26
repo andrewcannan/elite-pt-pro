@@ -25,18 +25,18 @@
     <div class="col s12 center-align home-text">
         {% if session.user == "admin" %}
         <h1 class="white-text">Want to manage Users and Trainers?</h1>
-        <a id="book-btn" class="waves-effect waves-light btn-large pulse" href="{{ url_for('manage') }}">Manage</a>
+        <a id="book-btn" class="waves-effect waves-light btn-large pulse black-text" href="{{ url_for('manage') }}">Manage</a>
         {% elif session.pt %}
         <h1 class="white-text">Want to see sessions you have booked in?</h1>
-        <a id="book-btn" class="waves-effect waves-light btn-large pulse"
+        <a id="book-btn" class="waves-effect waves-light btn-large pulse black-text"
             href="{{ url_for('pt_sessions', username=session['user']) }}">PT Sessions</a>
         {% elif session.user and not session.pt %}
         <h1 class="white-text">Ready to book a session with your Personal Trainer?</h1>
-        <a id="book-btn" class="waves-effect waves-light btn-large pulse" href="{{ url_for('book_pt_session') }}">Book
+        <a id="book-btn" class="waves-effect waves-light btn-large pulse black-text" href="{{ url_for('book_pt_session') }}">Book
             Now</a>
         {% else %}
         <h1 class="white-text">Ready to book a session with your Personal Trainer?</h1>
-        <a class="waves-effect waves-light btn-large pulse" href="{{ url_for('login') }}">Login</a>
+        <a class="waves-effect waves-light btn-large pulse black-text" href="{{ url_for('login') }}">Login</a>
         <p class="white-text flow-text">Not registered? <a href="{{ url_for('register') }}">Register</a></p>
         {% endif %}
     </div>
