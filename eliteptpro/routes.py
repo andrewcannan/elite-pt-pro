@@ -231,7 +231,10 @@ def edit_pt_session(pt_session_id):
     selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
     trainer_name = selected_trainer.trainer_name
     pt_session.trainer_name = trainer_name
-    
+    if user.id != pt_session.user_id and (session["user"] != "admin"):
+        flash("you do not have permission to edit this training session")
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         # gets trainers id by query with the name selected in the form
         trainer = request.form.get("trainer_name")
