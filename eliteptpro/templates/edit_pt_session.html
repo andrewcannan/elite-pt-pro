@@ -50,7 +50,7 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-person prefix light-green-text"></i>
                     <select id="trainer_name" name="trainer_name" class="validate black-text" required>
-                        <option value="" disabled selected label></option>
+                        <option value="#" disabled selected label></option>
                         {% for trainer in trainers %}
                         <option>{{ trainer.trainer_name }}</option>
                         {% endfor %}
@@ -72,7 +72,7 @@
                     <i class="fa-solid fa-calendar-days prefix light-green-text"></i>
                     <select id="time" name="time" class="validate black-text validate" required>
                         <!-- Options added with JavaScript -->
-                        <option value="" disabled selected label>Select a Date First</option>
+                        <option value="#" disabled selected label>Select a Date First</option>
                     </select>
                     <label for="time" class="black-text">Pick a Time</label>
                 </div>
