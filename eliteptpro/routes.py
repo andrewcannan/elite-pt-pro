@@ -407,4 +407,12 @@ def handle_bad_request(e):
     Handles 404 error, page not found
     '''
     return render_template("error404.html")
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    '''
+    Handles 500 error, internal server error
+    '''
+    return render_template("error500.html")
         
