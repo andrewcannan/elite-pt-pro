@@ -23,12 +23,12 @@
                         <div class="card-action">
                             <a href="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}"
                                 class="btn light-green accent-4 black-text">Edit</a>
-                            <a href="#modal4" class="btn red modal-trigger black-text">Delete</a>
+                            <a href="#modal{{ pt_session.id }}" class="btn red modal-trigger black-text">Delete</a>
                         </div>
                     </div>
                 </div>
                 <!-- Modal Structure -->
-                <div id="modal4" class="modal">
+                <div id="modal{{ pt_session.id }}" class="modal">
                     <div class="modal-content">
                         <p>Are you sure you want to apply these changes?</p>
                     </div>
@@ -64,10 +64,10 @@
                         <span class="card-title">Holidays</span>
                         <ul>
                             {% for holiday in holidays %}
-                            <li class="holiday-list-item">{{ holiday.date.strftime("%d %B, %Y") }} <a href="#modal5"
+                            <li class="holiday-list-item">{{ holiday.date.strftime("%d %B, %Y") }} <a href="#modal{{ holiday.id }}"
                                     class="btn red modal-trigger black-text">Delete</a></li>
                             <!-- Modal Structure -->
-                            <div id="modal5" class="modal">
+                            <div id="modal{{ holiday.id }}" class="modal">
                                 <div class="modal-content black-text left-align">
                                     <p>Are you sure you want to apply these changes?</p>
                                 </div>
