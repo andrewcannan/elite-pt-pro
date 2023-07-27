@@ -59,8 +59,12 @@ footer {
 
 /* Holiday form */
 
-.holiday-list-item {
-    padding-top: 5px;
+.holiday-card {
+    margin: 0;
+}
+
+.holiday-card .holiday-content .holiday-title {
+    margin-bottom: 20px;
 }
 
 /* Error pages */
