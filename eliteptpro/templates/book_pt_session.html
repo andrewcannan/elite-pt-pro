@@ -4,8 +4,7 @@
     <h1 class="black-text">Book a Session</h1>
 </div>
 <div class="row">
-    <form id="pt-form" class="col s12 m8 offset-m2" method="POST"
-        action="{{ url_for('edit_pt_session', pt_session_id=pt_session.id) }}">
+    <form id="pt-form" class="col s12 m8 offset-m2" method="POST" action="{{ url_for('book_pt_session') }}">
         <div class="card-panel grey">
             <!-- Name input -->
             <div class="row">
@@ -58,19 +57,9 @@
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button data-target="modal1" class="col s12 btn-large light-green black-text text-shadow modal-trigger">
-                    Edit <i class="fa-solid fa-share-from-square"></i>
+                <button type="submit" class="col s12 btn-large light-green black-text text-shadow">
+                    Submit <i class="fa-solid fa-share-from-square"></i>
                 </button>
-            </div>
-        </div>
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <p>Are you sure you want to apply these changes?</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Agree</button>
             </div>
         </div>
     </form>
