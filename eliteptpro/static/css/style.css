@@ -1,3 +1,5 @@
+/* General */
+
 body {
     display: flex;
     min-height: 100vh;
@@ -22,6 +24,8 @@ h1 {
     margin-top: 3px;
 }
 
+/* Footer */
+
 footer {
     height: 100px;
     padding: 25px;
@@ -34,6 +38,7 @@ footer {
     }
 
 /* HomePage */
+
 .home-row {
     margin-bottom: 0;
 }
@@ -52,9 +57,37 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Holiday form */
+
 .holiday-list-item {
     padding-top: 5px;
 }
+
+/* Error pages */
+
+.error-container {
+    background: url(/static/images/laula-co-1TCw4zP1XBk-unsplash.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    margin-bottom: 0;
+}
+
+.error-text {
+    position: absolute;
+    bottom: 10%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.error-text a {
+    margin-bottom: 20px;
+}
+
+/* Media Queries */
 
 @media screen and (min-width: 993px) {
     .logo-image {

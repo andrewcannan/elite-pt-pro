@@ -399,4 +399,12 @@ def delete_trainer(trainer_id):
         db.session.delete(trainer)
         db.session.commit()
         return redirect(url_for("manage"))
+
+
+@app.errorhandler(404)
+def handle_bad_request(e):
+    '''
+    Handles 404 error, page not found
+    '''
+    return render_template("error404.html")
         

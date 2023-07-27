@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/0f1d727d9d.js" crossorigin="anonymous"></script>
+    <!-- Materialize Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
+    <title>Elite PT Pro</title>
+</head>
+
+
+
+<body>
+    <main>
+        <div class="row error-container">
+            <div class="row">
+                <div class="col s8 offset-s2 error-text center-align white-text">
+                    <h1>404. Uh-oh looks like our dog ate this page!</h1>
+                    <p>Page not found.</p>
+                    <a class="waves-effect waves-light btn-large pulse black-text" href="{{ url_for('home') }}">Home</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
