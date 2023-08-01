@@ -2,11 +2,10 @@
 
 This website was created as the 3rd Milestone Project for Code Institute's web application development course.
 
-[**__link to deployed site here__**](#)
+[**__link to deployed site here__**](https://elite-pt-pro-a6d44ea21364.herokuapp.com/)
 <br><br>
 
-respnsive mockup here
-<img src="">
+<img src="eliteptpro/docs/readme-images/responsive-mockup.png">
 <br><br>
 
 # Contents
