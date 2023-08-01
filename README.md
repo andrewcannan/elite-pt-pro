@@ -274,3 +274,14 @@ Homepage is available to all users but the content differs dependant on wether o
 <img src="eliteptpro/docs/readme-images/admin-homepage.png">
 </details>
 <br><br>
+
+### Modals
+
+Modals are present wherever a delete button is clicked to defend against accidental deletion.
+
+<details>
+<summary>Modal</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/modal.png">
+</details>
+<br><br>
