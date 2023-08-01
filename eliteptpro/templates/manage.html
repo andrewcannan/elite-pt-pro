@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel grey">
-                <h5>Users</h5>
+            <h5>Users</h5>
             <table class="black-text responsive-table highlight">
                 <tr>
                     <th>Username</th>
@@ -27,19 +27,20 @@
                             class="btn light-green accent-4 black-text">Edit</a>
                     </td>
                     <td><a href="#user-modal{{ user.id }}" class="btn red modal-trigger black-text">Delete</a>
+                        <!-- Modal Structure -->
+                        <div id="user-modal{{ user.id }}" class="modal">
+                            <div class="modal-content black-text left-align">
+                                <p>Are you sure you want to apply these changes?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                <a href="{{ url_for('delete_user', user_id=user.id) }}"
+                                    class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
-                <!-- Modal Structure -->
-                <div id="user-modal{{ user.id }}" class="modal">
-                    <div class="modal-content black-text left-align">
-                        <p>Are you sure you want to apply these changes?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        <a href="{{ url_for('delete_user', user_id=user.id) }}"
-                            class="modal-close waves-effect waves-green btn-flat">Delete</a>
-                    </div>
-                </div>
+
                 {% endfor %}
             </table>
         </div>
@@ -49,7 +50,7 @@
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel grey">
-                <h5>Trainers</h5>
+            <h5>Trainers</h5>
             <table class="black-text responsive-table highlight">
                 <tr>
                     <th>Trainer Name</th>
@@ -59,19 +60,20 @@
                 <tr>
                     <td>{{ trainer.trainer_name.capitalize() }}</td>
                     <td><a href="#trainer-modal{{ trainer.id }}" class="btn red modal-trigger black-text">Delete</a>
+                        <!-- Modal Structure -->
+                        <div id="trainer-modal{{ trainer.id }}" class="modal">
+                            <div class="modal-content black-text left-align">
+                                <p>Are you sure you want to apply these changes?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                <a href="{{ url_for('delete_trainer', trainer_id=trainer.id) }}"
+                                    class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
-                <!-- Modal Structure -->
-                <div id="trainer-modal{{ trainer.id }}" class="modal">
-                    <div class="modal-content black-text left-align">
-                        <p>Are you sure you want to apply these changes?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        <a href="{{ url_for('delete_trainer', trainer_id=trainer.id) }}"
-                            class="modal-close waves-effect waves-green btn-flat">Delete</a>
-                    </div>
-                </div>
+
                 {% endfor %}
             </table>
         </div>
@@ -81,7 +83,7 @@
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel grey">
-                <h5>PT Sessions</h5>
+            <h5>PT Sessions</h5>
             <table class="black-text responsive-table highlight">
                 <tr>
                     <th>Member Name</th>
@@ -101,19 +103,20 @@
                             class="btn light-green accent-4 black-text">Edit</a></td>
                     <td><a href="#pt-session-modal{{ pt_session.id }}"
                             class="btn red modal-trigger black-text">Delete</a>
+                        <!-- Modal Structure -->
+                        <div id="pt-session-modal{{ pt_session.id }}" class="modal">
+                            <div class="modal-content black-text left-align">
+                                <p>Are you sure you want to apply these changes?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                <a href="{{ url_for('delete_pt_session', pt_session_id=pt_session.id) }}"
+                                    class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
-                <!-- Modal Structure -->
-                <div id="pt-session-modal{{ pt_session.id }}" class="modal">
-                    <div class="modal-content black-text left-align">
-                        <p>Are you sure you want to apply these changes?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        <a href="{{ url_for('delete_pt_session', pt_session_id=pt_session.id) }}"
-                            class="modal-close waves-effect waves-green btn-flat">Delete</a>
-                    </div>
-                </div>
+
                 {% endfor %}
             </table>
         </div>
@@ -123,7 +126,7 @@
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel grey">
-                <h5>Holidays</h5>
+            <h5>Holidays</h5>
             <table class="black-text responsive-table highlight">
                 <tr>
                     <th>Trainer Name</th>
@@ -135,19 +138,20 @@
                     <td>{{ holiday.trainer_name.capitalize() }}</td>
                     <td>{{ holiday.date.strftime("%d %B, %Y") }}</td>
                     <td><a href="#holiday-modal{{ holiday.id }}" class="btn red modal-trigger black-text">Delete</a>
+                        <!-- Modal Structure -->
+                        <div id="holiday-modal{{ holiday.id }}" class="modal">
+                            <div class="modal-content black-text left-align">
+                                <p>Are you sure you want to apply these changes?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                <a href="{{ url_for('delete_holiday', holiday_id=holiday.id) }}"
+                                    class="modal-close waves-effect waves-green btn-flat t">Delete</a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
-                <!-- Modal Structure -->
-                <div id="holiday-modal{{ holiday.id }}" class="modal">
-                    <div class="modal-content black-text left-align">
-                        <p>Are you sure you want to apply these changes?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        <a href="{{ url_for('delete_holiday', holiday_id=holiday.id) }}"
-                            class="modal-close waves-effect waves-green btn-flat t">Delete</a>
-                    </div>
-                </div>
+
                 {% endfor %}
             </table>
         </div>
