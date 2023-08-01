@@ -264,8 +264,6 @@ Log out functionality available to all logged in users, simply clears all sessio
 
 ## All User Features
 
-
-
 ### Homepage
 
 Homepage is available to all users but the content differs dependant on wether or not the user is logged in and what user is logged in i.e member, trainer, admin.
@@ -292,6 +290,28 @@ Homepage is available to all users but the content differs dependant on wether o
 <summary>Homepage Admin Logged In</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/admin-homepage.png">
+</details>
+<br><br>
+
+### Log In 
+
+Log in form is rendered and checks for user in database and password correct. Prompt at bottom of form if not already registered with link to register page.
+
+<details>
+<summary>Log In</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/log-in.png">
+</details>
+<br><br>
+
+### Register
+
+Form is rendered to register for the site, checks if user is already in database, if not adds them to database and checks if "is personal trainer" is true or not if true adds to trainers table too.  Prompt at bottom of form if already registered with link to Log In page.
+
+<details>
+<summary>Log In</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/register.png">
 </details>
 <br><br>
 
