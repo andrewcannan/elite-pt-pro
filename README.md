@@ -15,8 +15,11 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Visitor Goals](#visitor-goals)
 * [Design](#design)
     * [Wireframes](#wireframes)
+    * [Database Schema](#database-schema)
     * [Materialize](#materialize)
     * [Images](#images)
+* [Features](#features)
+    * [Multi-page Features](#multi-page-features)
 
 <br><br>
 
@@ -188,3 +191,86 @@ All images were sourced from [Unsplash](https://unsplash.com/), [Convertio](http
 <br><br>
 
 
+# Features
+
+## Multi-page Features
+
+### Navbar
+
+The navbar is present across all pages ecxept for custom pages to catch errors. On mobile devices collapses to a hamburger icon which opens as a sidenav. The links visible are dependant on if the user is logged in and what level of user they are.
+
+<details>
+<summary>Navbar Logged Out</summary>
+<br>
+<img src="eliteptpro/docs/readme-images/navbar-logged-out.png">
+</details>
+<br><br>
+<details>
+<summary>Navbar Member Logged In</summary>
+<br>
+<img src="eeliteptpro/docs/readme-images/navbar-member-logged-in.png">
+</details>
+<br><br>
+<details>
+<summary>Navbar Trainer Logged In</summary>
+<br>
+<img src="eliteptpro/docs/readme-images/navbar-member-logged-in.png">
+</details>
+<br><br>
+<details>
+<summary>Navbar Admin Logged In</summary>
+<br>
+<img src="eliteptpro/docs/readme-images/navbar-admin-logged-in.png">
+</details>
+<br><br>
+
+### Footer
+
+Footer is present across all pages ecxept for custom pages to catch errors, with a disclaimer and links to GitHub profile and LinkedIn profile.
+
+<details>
+<summary>Footer</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/footer.png">
+</details>
+<br><br>
+
+### Favicon
+
+Favicon was made by cropping the the first part of the navbar logo that was created. Made at [Favicon](https://favicon.io/).
+
+<details>
+<summary>Favicon</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/logo-for-favicon.png">
+</details>
+<br><br>
+
+### Homepage
+
+Homepage is available to all users but the content differs dependant on wether or not the user is logged in and what user is logged in i.e member, trainer, admin.
+
+<details>
+<summary>Homepage Logged Out</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/homepage-logged-out.png">
+</details>
+<br><br>
+<details>
+<summary>Homepage Member Logged In</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/member-homepage.png">
+</details>
+<br><br>
+<details>
+<summary>Homepage Trainer Logged In</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/trainer-homepage.png">
+</details>
+<br><br>
+<details>
+<summary>Homepage Admin Logged In</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/admin-homepage.png">
+</details>
+<br><br>
