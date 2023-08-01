@@ -1,4 +1,5 @@
-from flask import render_template, redirect, request, flash, url_for, session, jsonify
+from flask import render_template, redirect, request, flash, url_for,\
+    session, jsonify
 from eliteptpro import app, db
 from eliteptpro.models import User, Trainers, Holidays, PTsessions
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -124,7 +125,8 @@ def my_sessions(username):
         selected_trainer = Trainers.query.filter_by(id=trainer_id).first()
         trainer_name = selected_trainer.trainer_name
         pt_session.trainer_name = trainer_name
-    return render_template("my_sessions.html", user=user, pt_sessions=pt_sessions)
+    return render_template(
+        "my_sessions.html", user=user, pt_sessions=pt_sessions)
 
 
 @app.route("/pt_sessions/<username>",  methods=["GET", "POST"])
@@ -142,7 +144,9 @@ def pt_sessions(username):
     holidays = Holidays.query.filter_by(trainer_id=trainer.id).all()
     # get all sessions in db that correspond to current trainers id
     pt_sessions = PTsessions.query.filter_by(trainer_id=trainer.id).all()
-    return render_template("pt_sessions.html", user=user, trainer=trainer, holidays=holidays, pt_sessions=pt_sessions)
+    return render_template("pt_sessions.html", user=user,
+                           trainer=trainer, holidays=holidays,
+                           pt_sessions=pt_sessions)
 
 
 @app.route("/holiday", methods=["GET", "POST"])
@@ -210,7 +214,8 @@ def book_pt_session():
         db.session.commit()
         flash("Session booked successfully")
         return redirect(url_for("my_sessions", username=session["user"]))
-    return render_template("book_pt_session.html", user=user, trainers=trainers)
+    return render_template(
+        "book_pt_session.html", user=user, trainers=trainers)
 
 
 @app.route("/edit_pt_session/<int:pt_session_id>", methods=["GET", "POST"])
@@ -254,8 +259,8 @@ def edit_pt_session(pt_session_id):
             return redirect(url_for("pt_sessions", username=session["user"]))
         else:
             return redirect(url_for("my_sessions", username=session["user"]))
-    return render_template(
-        "edit_pt_session.html", user=user, trainers=trainers, pt_session=pt_session)
+    return render_template("edit_pt_session.html", user=user,
+                           trainers=trainers, pt_session=pt_session)
 
 
 @app.route("/delete_pt_session/<int:pt_session_id>")
@@ -264,7 +269,8 @@ def delete_pt_session(pt_session_id):
     user = User.query.filter_by(username=session["user"]).first()
     # deletes pt session from the sessions table in db
     pt_session = PTsessions.query.get_or_404(pt_session_id)
-    if user.id != pt_session.user_id and (session["user"] != "admin") and (user.is_pt != True):
+    if user.id != pt_session.user_id and (
+            session["user"] != "admin") and (user.is_pt != True):
         flash("you do not have permission to delete this training session")
         return redirect(url_for("home"))
 
@@ -321,7 +327,8 @@ def manage():
         flash("You do not have permission to view admin page")
         return redirect(url_for("home"))
     # retrieve list of all users in db excluding admin
-    users = User.query.filter(User.username != "admin").order_by(User.username).all()
+    users = User.query.filter(User.username != "admin").order_by(
+        User.username).all()
     # retrieve list of all trainers in db
     trainers = Trainers.query.order_by(Trainers.trainer_name).all()
     # retrieve list of all pt sessions in db
@@ -339,7 +346,8 @@ def manage():
         trainer_name = selected_trainer.trainer_name
         holiday.trainer_name = trainer_name
     return render_template("manage.html", users=users,
-         pt_sessions=pt_sessions, holidays=holidays, trainers=trainers)
+                           pt_sessions=pt_sessions,
+                           holidays=holidays, trainers=trainers)
 
 
 @app.route("/edit_user/<int:user_id>", methods=["GET", "POST"])
@@ -363,7 +371,7 @@ def edit_user(user_id):
         user.is_pt = bool(True if request.form.get("is_pt") else False)
         db.session.commit()
         return redirect(url_for("manage"))
-    
+
     return render_template("edit_user.html", user=user)
 
 
@@ -415,4 +423,3 @@ def internal_error(error):
     Handles 500 error, internal server error
     '''
     return render_template("error500.html")
-        
