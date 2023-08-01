@@ -285,3 +285,47 @@ Modals are present wherever a delete button is clicked to defend against acciden
 <img src="eliteptpro/docs/readme-images/modal.png">
 </details>
 <br><br>
+
+### Log Out
+
+Log out functionality available to all logged in users, simply clears all session cookies.
+
+## Member Level Features
+
+These are features/pages available to registered users that are members only and not personal trainers.
+
+### My Sessions Page
+
+This is the page this level of user is directed to on Log In. My sessions displays the users already booked sessions in cards with buttons to edit or delete the session. Display of cards dependant on screen size.
+
+<details>
+<summary>My Sessions</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/my-sessions.png">
+</details>
+<br><br>
+
+### Book Session Page
+
+Book session page consists of a form to add a session to the database. The form requires all fields to be filled out. A list of trainers is retrieved from the database and once the trainer is selected a request is sent to retrieve a list of holidays which will be disabled in the datepicker. Once the date is selected another request is sent to retrieve a list of times already booked for that date, to prevent double bookings.
+
+<details>
+<summary>Book a Session</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/book-session-form.png">
+</details>
+<br><br>
+<details>
+<summary>Disabled Holidays</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/disabled-holidays.png">
+</details>
+<br><br>
+<details>
+<summary>Disabled Times</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/disabled-times.png">
+</details>
+<br><br>
+
+## 
