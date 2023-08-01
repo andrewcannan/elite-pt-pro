@@ -328,4 +328,27 @@ Book session page consists of a form to add a session to the database. The form 
 </details>
 <br><br>
 
-## 
+## Trainer Level Features
+
+### PT Sessions Page
+
+Tghis is the page the user is directed to on Log In. Displays all sessions booked with that trainer in the database as cards with buttons to edit or delete. Displays all holidays that trainer has booked up with a button to delete holiday. Also a button to add a holiday to the database.
+
+<details>
+<summary>PT Sessions</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/pt-sessions.png">
+</details>
+<br><br>
+
+### Add Holiday Form
+
+When the user clicks the add holiday form it renders the form to add a holiday to the database.
+
+<details>
+<summary>Add Holiday</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/add-holiday.png">
+</details>
+<br><br>
+
