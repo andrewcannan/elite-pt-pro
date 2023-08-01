@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         return holidays.includes(formattedDate);
                     },
                 });
-            })
+            });
 
-        getTimes()
+        getTimes();
     }
-})
+});
 
 
 
@@ -65,7 +65,7 @@ function getHolidays() {
      * sends request to backend to retrieve list of holidays for selected trainer
      * formats returned array to a format accepted by datepicker for use in datepicker
      */
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         // add event listener on dropdown selection change
         let trainerSelect = document.getElementById("trainer_name");
         trainerSelect.addEventListener("change", function () {
@@ -90,12 +90,12 @@ function getHolidays() {
                     let day = String(date.getDate()).padStart(2, '0');
                     let formattedDate = `${year}-${month}-${day}`;
                     formattedDates.push(formattedDate);
-                };
+                }
                 resolve(formattedDates);
             };
         });
-    })
-};
+    });
+}
 
 function getTimes() {
     /**
@@ -103,8 +103,7 @@ function getTimes() {
      * and disable option in dropdown list
      */
     let dateSelect = document.getElementById("date");
-    let selectbox = document.getElementById("time");
-    // add event listener on ddatepicker selection change
+    // add event listener on datepicker selection change
     dateSelect.addEventListener("change", function () {
         let selectedDate = this.value;
         let selectedTrainer = document.getElementById("trainer_name").value;
@@ -145,7 +144,7 @@ function getTimes() {
             }
             // initialize dropdown
             M.FormSelect.init(selectbox);
-        }
+        };
 
-    })
+    });
 }
