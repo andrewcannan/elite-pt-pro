@@ -20,6 +20,11 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Images](#images)
 * [Features](#features)
     * [Multi-page Features](#multi-page-features)
+    * [All User Features](#all-user-features)
+    * [Member Level Features](#member-level-features)
+    * [Trainer Level Features](#trainer-level-features)
+    * [Admin Level Features](#admin-level-features)
+    * [Member/Trainer/Admin Level Features](#membertraineradmin-level-features)
 
 <br><br>
 
