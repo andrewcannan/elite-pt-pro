@@ -25,6 +25,7 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Trainer Level Features](#trainer-level-features)
     * [Admin Level Features](#admin-level-features)
     * [Member/Trainer/Admin Level Features](#membertraineradmin-level-features)
+    * [Error Pages](#error-pages)
 
 <br><br>
 
@@ -420,5 +421,29 @@ Displays the information on the currently booked session as a table above the fo
 <summary>Edit PT Session</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/edit-session.png">
+</details>
+<br><br>
+
+## Error Pages
+
+### 404 Page
+
+In the event of a page not found the error handler will render a page with a link back to the homepage.
+
+<details>
+<summary>404 Error</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/404-page.png">
+</details>
+<br><br>
+
+### 500 Page
+
+In the event of a bad response from the server the error handler will render a page with a link back to the homepage.
+
+<details>
+<summary>500 Error</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/500-page.png">
 </details>
 <br><br>
