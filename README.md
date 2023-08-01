@@ -246,6 +246,26 @@ Favicon was made by cropping the the first part of the navbar logo that was crea
 </details>
 <br><br>
 
+### Modals
+
+Modals are present wherever a delete button is clicked to defend against accidental deletion.
+
+<details>
+<summary>Modal</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/modal.png">
+</details>
+<br><br>
+
+### Log Out
+
+Log out functionality available to all logged in users, simply clears all session cookies.
+<br><br>
+
+## All User Features
+
+
+
 ### Homepage
 
 Homepage is available to all users but the content differs dependant on wether or not the user is logged in and what user is logged in i.e member, trainer, admin.
@@ -274,21 +294,6 @@ Homepage is available to all users but the content differs dependant on wether o
 <img src="eliteptpro/docs/readme-images/admin-homepage.png">
 </details>
 <br><br>
-
-### Modals
-
-Modals are present wherever a delete button is clicked to defend against accidental deletion.
-
-<details>
-<summary>Modal</summary></summary>
-<br>
-<img src="eliteptpro/docs/readme-images/modal.png">
-</details>
-<br><br>
-
-### Log Out
-
-Log out functionality available to all logged in users, simply clears all session cookies.
 
 ## Member Level Features
 
@@ -374,5 +379,21 @@ Form is rendered on clicking of edit user button, prepopulated with current info
 <summary>Edit User</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/edit-user.png">
+</details>
+<br><br>
+
+## Member/Trainer/Admin Level Features
+
+These are features that are shared by different users.
+
+### Edit PT Session
+
+The edit session form is almost identical to the book session form and functions in the same way sending requests to retrieve information on holidays and times on selection of trainer and date.
+Displays the information on the currently booked session as a table above the form.
+
+<details>
+<summary>Edit PT Session</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/edit-session.png">
 </details>
 <br><br>
