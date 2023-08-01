@@ -352,3 +352,27 @@ When the user clicks the add holiday form it renders the form to add a holiday t
 </details>
 <br><br>
 
+## Admin Level Features
+
+### Manage Page
+
+This is the page the user is directed to on Log In. Displays information from each table in the database with edit and delete buttons for the management to control users, trainers, their holidays and booked sessions. Password information for each user isn't displayed.
+
+<details>
+<summary>Manage</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/manage-1.png">
+<img src="eliteptpro/docs/readme-images/manage-2.png">
+</details>
+<br><br>
+
+### Edit User Form
+
+Form is rendered on clicking of edit user button, prepopulated with current information stored on user.
+
+<details>
+<summary>Edit User</summary></summary>
+<br>
+<img src="eliteptpro/docs/readme-images/edit-user.png">
+</details>
+<br><br>
