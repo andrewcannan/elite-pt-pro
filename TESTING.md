@@ -87,3 +87,14 @@ All pages pass CSS Validation at [W3C CSS validation service](https://jigsaw.w3.
 <img src="eliteptpro/docs/validation-images/css-validation.png">
 </details>
 <br><br>
+
+## JS Validation
+
+Custom JS script file run through [JShint](https://jshint.com/) for validation. Shows 'M' variable as undefined but as this is part of the script given from the materialize documentation I have chosen to ignore it as the components work as expected.
+
+<details>
+<summary>JS Validation</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/jshint.png">
+</details>
+<br><br>
