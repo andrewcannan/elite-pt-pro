@@ -18,7 +18,7 @@
 
 ## HTML Validation
 
-All pages pass HTML Validation at [W3C markup validation service](https://validator.w3.org/) with no errors or warnings.
+All pages pass HTML Validation at [W3C markup validation service](https://validator.w3.org/) with no errors or warnings. There was 1 warning for the flash messages section didn't contain a heading which it did, so a google search suggested to change the section element into a normal div.
 
 <details>
 <summary>Homepage</summary>
@@ -74,5 +74,16 @@ All pages pass HTML Validation at [W3C markup validation service](https://valida
 <summary>500 Error</summary>
 <br>
 <img src="eliteptpro/docs/validation-images/error500-html-checker.png">
+</details>
+<br><br>
+
+## CSS Validation
+
+All pages pass CSS Validation at [W3C CSS validation service](https://jigsaw.w3.org/css-validator/) with no errors or warnings.
+
+<details>
+<summary>CSS Validation</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/css-validation.png">
 </details>
 <br><br>
