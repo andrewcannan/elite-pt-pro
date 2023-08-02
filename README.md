@@ -222,19 +222,16 @@ The navbar is present across all pages ecxept for custom pages to catch errors. 
 <br>
 <img src="eliteptpro/docs/readme-images/navbar-logged-out.png">
 </details>
-<br><br>
 <details>
 <summary>Navbar Member Logged In</summary>
 <br>
 <img src="eeliteptpro/docs/readme-images/navbar-member-logged-in.png">
 </details>
-<br><br>
 <details>
 <summary>Navbar Trainer Logged In</summary>
 <br>
 <img src="eliteptpro/docs/readme-images/navbar-member-logged-in.png">
 </details>
-<br><br>
 <details>
 <summary>Navbar Admin Logged In</summary>
 <br>
@@ -291,19 +288,16 @@ Homepage is available to all users but the content differs dependant on wether o
 <br>
 <img src="eliteptpro/docs/readme-images/homepage-logged-out.png">
 </details>
-<br><br>
 <details>
 <summary>Homepage Member Logged In</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/member-homepage.png">
 </details>
-<br><br>
 <details>
 <summary>Homepage Trainer Logged In</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/trainer-homepage.png">
 </details>
-<br><br>
 <details>
 <summary>Homepage Admin Logged In</summary></summary>
 <br>
@@ -357,13 +351,11 @@ Book session page consists of a form to add a session to the database. The form 
 <br>
 <img src="eliteptpro/docs/readme-images/book-session-form.png">
 </details>
-<br><br>
 <details>
 <summary>Disabled Holidays</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/disabled-holidays.png">
 </details>
-<br><br>
 <details>
 <summary>Disabled Times</summary></summary>
 <br>
