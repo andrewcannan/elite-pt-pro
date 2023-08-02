@@ -31,7 +31,13 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
 * [Technologies](#technologies)
     * [Languages](#languages)
     * [Tools](#tools)
-
+* [Testing](#testing)
+* [Deployment](#deployment)
+    * [Deployment to Heroku](#deployment-to-heroku)
+    * [Forking Repository](#forking-the-github-repository)
+    * [Make Local Clone](#making-a-local-clone)
+    * [Version Control](#version-control)
+    
 <br><br>
 
 # User Experience
@@ -505,3 +511,80 @@ Also would like to add functionality to require the user to supply their gym mem
 * Favicon.io - used to create favicon.
 * FontAwesome - used for icons on forms.
 * Heroku - used for deployment.
+<br><br>
+
+# Testing
+
+For testing please the [Testing](#) documentation.
+<br><br>
+
+# Deployment
+
+## Deployment to Heroku
+
+To deploy to Heroku:
+1. In GitPod CLI, the root directory of the project, run:
+    pip3 free --local > requirements.txt
+    to create a requirements.txt file containing project dependencies.
+2. In the Gitpod project workspace root directory, create a new file called Procfile, with capital 'P'.
+    Open the Procfile. Inside the file, check that web: python3 app.py has been added when creating the file
+    Save the file.
+3. Push the 2 new files to the GitHub repository
+4. Login to Heroku, select Create new app, add the name for your app and choose your closest region.
+5. Navigate to the Deploy tab on Heroku dashboard and select Github, search for your repository and click 'connect'.
+6. Navigate to the settings tab, click reveal config vars and input the following:
+
+| Key | Value |
+| :---: | :---: |
+| DATABASE_URL | postgresql |
+| IP | 0.0.0.0 |
+| PORT | 5000 |
+| SECRET_KEY | mysecretkey |
+
+Actual Enviroment variables not disclosed for security.
+
+## Forking the GitHub Repository
+<br>
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+<br><br>
+
+## Making a Local Clone
+<br>
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+```
+
+7. Press Enter. Your local clone will be created.
+
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
+<br><br>
+
+## Version Control
+
+Workflow controlled using Git and GitHub. It helps you track different versions of your code and collaborate with other developers. Version control allows you to keep track of your work and helps you to easily explore the changes you have made.
+
+You can think of a repository as a “main folder”, everything associated with a specific project should be kept in a repo for that project.
+You will have a local copy (on your computer) and an online copy (on GitHub) of all the files in the repository.
+
+Once Changes on your local copy have been saved they can be added to the staging area using ```Git -add```. And then commited using ```Git commit``` along with your message, meaning they will be saved as a version of the repository which is then ready to be pushed, using ```Git push```, up to the online copy of your repository.
+<br><br>
