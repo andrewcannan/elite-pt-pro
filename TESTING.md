@@ -11,6 +11,7 @@
     * [CSS Validation](#css-validation)
     * [JS Validation](#js-validation)
     * [CI Python Linter](#ci-python-linter)
+    * [Lighthouse](#lighthouse)
 
 <br><br>
 
