@@ -37,7 +37,8 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Forking Repository](#forking-the-github-repository)
     * [Make Local Clone](#making-a-local-clone)
     * [Version Control](#version-control)
-    
+* [Credits](#credits)
+
 <br><br>
 
 # User Experience
@@ -283,7 +284,7 @@ Log out functionality available to all logged in users, simply clears all sessio
 
 ### Homepage
 
-Homepage is available to all users but the content differs dependant on wether or not the user is logged in and what user is logged in i.e member, trainer, admin.
+Homepage is available to all users but the content differs dependant on wether or not the user is logged in and what user is logged in i.e member, trainer, admin. Has an auto-slider of 4 images in the background to visually show the purpose of the site as a gym.
 
 <details>
 <summary>Homepage Logged Out</summary></summary>
@@ -588,3 +589,12 @@ You will have a local copy (on your computer) and an online copy (on GitHub) of 
 
 Once Changes on your local copy have been saved they can be added to the staging area using ```Git -add```. And then commited using ```Git commit``` along with your message, meaning they will be saved as a version of the repository which is then ready to be pushed, using ```Git push```, up to the online copy of your repository.
 <br><br>
+
+# Credits
+
+All photos for the auto-slider on the homepage were sourced from [Unsplash](https://unsplash.com/).
+
+* https://unsplash.com/photos/YFmvjO3TP_s - ŞULE MAKAROĞLU 
+* https://unsplash.com/photos/LDAirERNzew - Valery Sysoev
+* https://unsplash.com/photos/optBC2FxCfc - Sven Mieke
+* https://unsplash.com/photos/IBlWVIGnXag - Ricardo Henri
