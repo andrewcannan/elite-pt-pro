@@ -124,3 +124,62 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 <img src="eliteptpro/docs/validation-images/ci-linter-run.png">
 </details>
 <br><br>
+
+## Lighthouse
+
+<details>
+<summary>Homepage - Best practices has a lower score due to low resolution of slider images, this is intentional to reduce load time. Also for aspect ratio on logo image but in my opinion is visually ok.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-homepage.png">
+</details>
+<details>
+<summary>Register - Good Scores.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-register.png">
+</details>
+<details>
+<summary>Log In - Good Scores.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-login.png">
+</details>
+<details>
+<summary>My Sessions - Good Scores.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-my-sessions.png">
+</details>
+<details>
+<summary>PT Sessions - Good Scores.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-pt-sessions.png">
+</details>
+<details>
+<summary>Manage - Good Scores.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-manage.png">
+</details>
+<details>
+<summary>Book Session - Lower accessibility score due to lighthouse reporting no form labels on select elements when they are present.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-book-session.png">
+</details>
+<details>
+<summary>Edit Session - Lower accessibility score due to lighthouse reporting no form labels on select elements when they are present.</summary>
+<br>
+<img src="eliteptpro/docs/validation-images/lighthouse-edit-session.png">
+</details>
+<details>
+<summary>Add Holiday - Good Scores.</summary>
+<img src="eliteptpro/docs/validation-images/lighthouse-holiday.png">
+</details>
+<details>
+<summary>Edit User - Good Scores.</summary>
+<img src="eliteptpro/docs/validation-images/lighthouse-edit-user.png">
+</details>
+<details>
+<summary>404 Page - Lower SEO score due to lack of meta description but as this is just an error handler page I think it is unneccesary.</summary>
+<img src="eliteptpro/docs/validation-images/lighthouse-404.png">
+</details>
+<details>
+<summary>500 Page - Lower SEO score due to lack of meta description but as this is just an error handler page I think it is unneccesary.</summary>
+<img src="eliteptpro/docs/validation-images/lighthouse-500.png">
+</details>
