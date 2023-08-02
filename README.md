@@ -508,7 +508,7 @@ Also would like to add functionality to require the user to supply their gym mem
 
 # Testing
 
-For testing please the [Testing](#) documentation.
+For testing please the [Testing](TESTING.md) documentation.
 <br><br>
 
 # Deployment
