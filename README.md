@@ -28,6 +28,9 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Error Pages](#error-pages)
     * [CRUD Functionality](#crud-functionality)
     * [Future Implementation](#future-implementation)
+* [Technologies](#technologies)
+    * [Languages](#languages)
+    * [Tools](#tools)
 
 <br><br>
 
@@ -466,3 +469,39 @@ In the event of a bad response from the server the error handler will render a p
 
 If the project was to be developed further I would like to require the user to supply an email, so that when PT sessions are edited or deleted the user could be notified of the change and the reason why.
 Also would like to add functionality to require the user to supply their gym membership number, which could be cross refrenced with the gyms existing database to check if the user signing up truly is a member of the gym.
+<br><br>
+
+# Technologies
+
+## Languages
+
+* HTML5 - for content and structure.
+* CSS3 - for styling.
+* Vanilla JS - for initialization of materialize components and for functions that request and handle data from the backend.
+* Python - for the backend functionality.
+    * Python Modules used -
+    * blinker==1.6.2
+    * click==8.1.3
+    * Flask==2.3.2
+    * Flask-SQLAlchemy==3.0.5
+    * greenlet==2.0.2
+    * itsdangerous==2.1.2
+    * psycopg2==2.9.6
+    * SQLAlchemy==2.0.19
+    * Werkzeug==2.3.6
+<br><br>
+
+## Tools
+
+* Convertio - used to convert images to WEBP format.
+* Tinypng - used to compress images.
+* Baslamiq - used to create wireframes.
+* Adobe Photoshop - used to create logo.
+* Diagrams.net - used to create DB schema.
+* Am I Responsive - used to create responsive mockup for readme.
+* Google Dev Tools - used for troubleshooting during development.
+* Git/Github - used for version control and storage.
+* Materialize - used for majority of frontend components.
+* Favicon.io - used to create favicon.
+* FontAwesome - used for icons on forms.
+* Heroku - used for deployment.
