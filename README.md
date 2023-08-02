@@ -27,6 +27,7 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Member/Trainer/Admin Level Features](#membertraineradmin-level-features)
     * [Error Pages](#error-pages)
     * [CRUD Functionality](#crud-functionality)
+    * [Future Implementation](#future-implementation)
 
 <br><br>
 
@@ -459,3 +460,9 @@ In the event of a bad response from the server the error handler will render a p
 | Book Session | Create a new instance of a Session                      | View disabled days for booked Holidays and times for booked Sessions                 |                                                        |                                                                       |
 | PT Sessions  | Create new instance of a Holiday                        | View all currently booked Sessions with Trainer                                      | Functionality to edit booked Sessions                  | Functionality to delete booked Sessions and to delete Holidays        |
 | Manage       |                                                         | View information from all tables in database. Users, Trainers, Holidays and Sessions | Functionality to edit booked Sessions and to edit User | Functionality to delete booked Users, Trainers, Holidays and Sessions |
+<br><br>
+
+## Future Implementation
+
+If the project was to be developed further I would like to require the user to supply an email, so that when PT sessions are edited or deleted the user could be notified of the change and the reason why.
+Also would like to add functionality to require the user to supply their gym membership number, which could be cross refrenced with the gyms existing database to check if the user signing up truly is a member of the gym.
