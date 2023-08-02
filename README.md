@@ -26,6 +26,7 @@ This website was created as the 3rd Milestone Project for Code Institute's web a
     * [Admin Level Features](#admin-level-features)
     * [Member/Trainer/Admin Level Features](#membertraineradmin-level-features)
     * [Error Pages](#error-pages)
+    * [CRUD Functionality](#crud-functionality)
 
 <br><br>
 
@@ -447,3 +448,14 @@ In the event of a bad response from the server the error handler will render a p
 <img src="eliteptpro/docs/readme-images/500-page.png">
 </details>
 <br><br>
+
+## CRUD Functionality
+
+| Page         | Create                                                  | Read                                                                                 | Update                                                 | Delete                                                                |
+| ------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------------------------------- |
+| Login        |                                                         | Read username for password check                                                     |                                                        |                                                                       |
+| Register     | Create new instance of a User and Trainer if applicable | Read username to check if User exists                                                |                                                        |                                                                       |
+| My Sessions  |                                                         | View all currently booked Sessions by User                                           | Functionality to edit booked Sessions                  | Functionality to delete booked Sessions                               |
+| Book Session | Create a new instance of a Session                      | View disabled days for booked Holidays and times for booked Sessions                 |                                                        |                                                                       |
+| PT Sessions  | Create new instance of a Holiday                        | View all currently booked Sessions with Trainer                                      | Functionality to edit booked Sessions                  | Functionality to delete booked Sessions and to delete Holidays        |
+| Manage       |                                                         | View information from all tables in database. Users, Trainers, Holidays and Sessions | Functionality to edit booked Sessions and to edit User | Functionality to delete booked Users, Trainers, Holidays and Sessions |
