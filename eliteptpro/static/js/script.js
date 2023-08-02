@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         disableWeekends: true,
         format: "dd, mmm, yyyy",
         autoClose: true,
-    })
+    });
 
     let modal = document.querySelectorAll('.modal');
     M.Modal.init(modal);
