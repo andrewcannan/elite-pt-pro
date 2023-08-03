@@ -289,6 +289,7 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 | Enter url to edit session of another user.            | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
 | Enter url to delete session of another user.          | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
 | Enter url for admin page when not logged in as admin. | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
+<br><br>
 
 # Responsiveness
 
