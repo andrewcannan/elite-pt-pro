@@ -19,6 +19,7 @@
     * [Employee/PT User](#employeept-user)
     * [Managment User](#management-user)
 * [Manual Testing](#manual-testing)
+* [Responsiveness](#responsiveness)
 
 <br><br>
 
@@ -288,3 +289,142 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 | Enter url to edit session of another user.            | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
 | Enter url to delete session of another user.          | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
 | Enter url for admin page when not logged in as admin. | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
+
+# Responsiveness
+
+Tested across various devices using Google Dev Tools and real world devices for expected look and layout. 
+
+<details>
+<summary>Samsung S22 Ultra</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| Samsung S22 Ultra| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<details>
+<summary>IPhone 12 Pro</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| IPhone 12 Pro| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<details>
+<summary>IPhone 6/7/8</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| IPhone 6/7/8| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<details>
+<summary>IPad Pro 2</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| IPad Pro 2| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<details>
+<summary>Nest Hub</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| Nest Hub| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<details>
+<summary>Samsung Galaxy A51/71</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| Samsung Galaxy A51/71| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<details>
+<summary>Surface Pro 7</summary>
+<br>
+
+| Device | Page | Result |
+| ----------- | ----------- |---------------- |
+| Surface Pro 7| Homepage | &check; |
+| | Log In | &check; |
+| | Register | &check; |
+| | My Sessions | &check; |
+| | PT Sessions | &check; |
+| | Manage | &check; |
+| | Book Session | &check; |
+| | Edit Session | &check; |
+| | Add Holiday | &check; |
+| | Edit User | &check; |
+| | 404 Page | &check; |
+| | 500 Page | &check; |
+</details>
+<br><br>
