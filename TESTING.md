@@ -13,6 +13,11 @@
     * [CI Python Linter](#ci-python-linter)
     * [Lighthouse](#lighthouse)
 * [User Story Testing](#user-story-testing)
+    * [General](#general)
+    * [Logged Out](#logged-out)
+    * [Member User](#member-user)
+    * [Employee/PT User](#employeept-user)
+    * [Managment User](#management-user)
 
 <br><br>
 
@@ -206,7 +211,7 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 | I want to be able to login/signup to the service. | Both log in and register features available, CTA on homepage or in navbar. |
 <br><br>
 
-## Logged in Member User
+## Member User
 
 | User Story                                                                      | Feature                                                                                                               |
 | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
