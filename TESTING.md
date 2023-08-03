@@ -18,6 +18,7 @@
     * [Member User](#member-user)
     * [Employee/PT User](#employeept-user)
     * [Managment User](#management-user)
+* [Manual Testing](#manual-testing)
 
 <br><br>
 
@@ -236,3 +237,54 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 | I want to be able to manage holidays of the trainers.                                | All holidays displayed in table with button to delete holiday.                                                                                                 |
 | I want to be able to see all sessions booked with PT employees and edit/delete them. | All sessions booked displayed in table with edit and delete buttons. Edit button renders form to edit session.                                                 |
 <br><br>
+
+# Manual Testing
+
+| Feature/Test                                          | Expected Outcome.                                                                                                        | Result |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------ |
+| Logo in Navbar.                                       | Redirect to Homepage.                                                                                                    | Pass.  |
+| Nav Links.                                            | Redirect to relevant pages.                                                                                              | Pass.  |
+| Side Nav                                              | Navbar collapes to Sidenav on mobile devices with correct links.                                                         | Pass.  |
+| Footer Links                                          | Open relevant sites in new tabs                                                                                          | Pass.  |
+| CTA Login button on Homepage.                         | Redirects to login page.                                                                                                 | Pass.  |
+| Login Form - empty.                                   | Will not submit if empty fields.                                                                                         | Pass.  |
+| Login Form - incorrect username.                      | Form submits but doesn't login, gives falsh message displaying reason.                                                   | Pass.  |
+| Login Form - incorrect password.                      | Form submits but doesn't login, gives falsh message displaying reason.                                                   | Pass.  |
+| Login Form - correct details.                         | Form submits and redirects user to relevant page for that user.                                                          | Pass.  |
+| Register link on Log In Form.                         | Redirects to register page.                                                                                              | Pass.  |
+| Register Form - empty.                                | Will not submit if empty fields.                                                                                         | Pass.  |
+| Register Form - username exists.                      | Form submits but does not register user, flash message display username already exists.                                  | Pass.  |
+| Register Form - new user details.                     | Form submits adding new user and redirects to Homepage with flash message asking to Log In.                              | Pass.  |
+| Log In link on Register Form                          | Redirects to Log In page.                                                                                                | Pass.  |
+| Log Out Button.                                       | Logs user out, clears session cookies and redirects to Homepage.                                                         | Pass.  |
+| My sessions page - edit session button.               | Redirects to edit session page.                                                                                          | Pass.  |
+| My sessions page - delete session button.             | Modal pops up prompting user to confirm change as a defense.                                                             | Pass.  |
+| Book Session form - empty.                            | Will not submit if empty fields.                                                                                         | Pass.  |
+| Book Session form - trainers selection.               | Trainer dropdown populated with options for trainers in database.                                                        | Pass.  |
+| Book Session form - datepicker.                       | Holidays booked by selected trainer disabled in datepicker.                                                              | Pass.  |
+| Book session form - times.                            | Times already booked for that trainer on selected date disabled.                                                         | Pass.  |
+| Book session form - submit.                           | Form submits and redirected to my sessions page with session displayed.                                                  | Pass.  |
+| Edit session form.                                    | Currently booked details displayed above form.                                                                           | Pass.  |
+| Edit Session form - empty.                            | Will not submit if empty fields.                                                                                         | Pass.  |
+| Edit Session form - trainers selection.               | Trainer dropdown populated with options for trainers in database.                                                        | Pass.  |
+| Edit Session form - datepicker.                       | Holidays booked by selected trainer disabled in datepicker.                                                              | Pass.  |
+| Edit session form - times.                            | Times already booked for that trainer on selected date disabled.                                                         | Pass.  |
+| Edit session form - submit.                           | Form submits and redirected to relevant page for user level. I.e member/trainer/admin.                                   | Pass.  |
+| PT sessions page - edit session button.               | Redirects to edit session page.                                                                                          | Pass.  |
+| PT sessions page - delete session button.             | Modal pops up prompting user to confirm change as a defense.                                                             | Pass.  |
+| PT sessions page - add holiday button.                | Redirects to add holiday page.                                                                                           | Pass.  |
+| PT sessions page - delete button.                     | Modal pops up prompting user to confirm change as a defense.                                                             | Pass.  |
+| Add Holiday form - empty.                             | Will not submit if empty fields.                                                                                         | Pass.  |
+| Add Holiday form - submit button.                     | Form submits and redirects to PT sessions page with new holiday displayed.                                               | Pass.  |
+| Manage page - edit user button.                       | Redirects to edit user page.                                                                                             | Pass.  |
+| Manage page - delete user button.                     | Modal pops up prompting user to confirm change as a defense, deletes trainer, holidays and sessions that are applicable. | Pass.  |
+| Manage page - delete trainer button.                  | Modal pops up prompting user to confirm change as a defense, deletes holidays and sessions that are applicable.          | Pass.  |
+| Manage page - edit session button.                    | Redirects to edit session page.                                                                                          | Pass.  |
+| Manage page - delete session button.                  | Modal pops up prompting user to confirm change as a defense.                                                             | Pass.  |
+| Type a non-existent page path.                        | Redirects to 404 page.                                                                                                   | Pass.  |
+| Enter url to edit session when logged out.            | Redirects to 500 page.                                                                                                   | Pass.  |
+| 404 page - home button.                               | Redirects to Homepage.                                                                                                   | Pass.  |
+| 500 page - home button.                               | Redirects to Homepage.                                                                                                   | Pass.  |
+| Enter url to edit session of another user.            | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
+| Enter url to delete session of another user.          | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
+| Enter url for admin page when not logged in as admin. | Redirects to Homepage, flash message not authorized.                                                                     | Pass.  |
