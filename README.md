@@ -75,9 +75,9 @@ As an employee/pt user:
 <br><br>
 
 As a managment user
-- I want to be able to add/edit users both members of gym and trainers
+- I want to be able to edit/delete users both members of gym and trainers
 - I want to be able to manage Holidays of the trainers
-- I want to be able to see all session booked with pt employees and edit/delete them
+- I want to be able to see all sessions booked with pt employees and edit/delete them
 <br><br>
 
 # Design

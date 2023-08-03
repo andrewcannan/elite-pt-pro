@@ -12,6 +12,7 @@
     * [JS Validation](#js-validation)
     * [CI Python Linter](#ci-python-linter)
     * [Lighthouse](#lighthouse)
+* [User Story Testing](#user-story-testing)
 
 <br><br>
 
@@ -184,3 +185,49 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 <summary>500 Page - Lower SEO score due to lack of meta description but as this is just an error handler page I think it is unneccesary.</summary>
 <img src="eliteptpro/docs/validation-images/lighthouse-500.png">
 </details>
+<br><br>
+
+# User Story Testing
+
+## General
+
+| User Story                                                                                | Feature                                                                                                                                    | Image |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| I want to immediately identify the purpose of the site.                                   | Logo in header displaying app name, background images of homepage and heading on homepage.                                                 |       |
+| I want navigation to be simple and intuitive.                                             | Nav links follow standard conventions of right aligned and common hamburger icon for mobile devices. Links differ dependent on user level. |       |
+| I want to be able to view the site on any device.                                         | Site is fully responsive with the aid of materialize frameworks grid system.                                                               |       |
+| I want to be able to easily navigate to the homepage incase of broken link or site error. | 404 and 500 pages rendered in the case of bad links or server errors.                                                                      |
+<br><br>
+
+## Logged Out 
+
+| User Story                                        | Feature                                                                    | Image |
+| ------------------------------------------------- | -------------------------------------------------------------------------- | ----- |
+| I want to be able to login/signup to the service. | Both log in and register features available, CTA on homepage or in navbar. |
+<br><br>
+
+## Logged in Member User
+
+| User Story                                                                      | Feature                                                                                                               | Image |
+| ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----- |
+| I want to be able to book a 1 hour PT session.                                  | Booking form available.                                                                                               |       |
+| I want to be able to see sessions i have currently booked and edit/delete them. | My sessions page displayed all booked sessions with buttons to edit/delete. Edit button renders new form for editing. |
+<br><br>
+
+## Employee/PT User
+
+| User Story                                                        | Feature                                                                                                         | Image |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----- |
+| I want to be able to see what sessions users have booked with me. | PT sessions page displays all booked sessions.                                                                  |       |
+| I want to be able to set days that I am unavailable for.          | Add holiday button present on PT sessions page, renders form for adding holiday.                                |       |
+| I want to be able to edit/delete user sessions I cannot make.     | Edit and delete buttons present on each card displaying sessions. Edit button renders form for editing session. |
+<br><br>
+
+## Management User
+
+| User Story                                                                           | Feature                                                                                                                                                        | Image |
+| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| I want to be able to edit/delete users both members of gym and trainers.             | All users displayed on manage page with edit and delte buttons. Edit button renders form to edit user. Trainers displayed in another table with delete button. |       |
+| I want to be able to manage holidays of the trainers.                                | All holidays displayed in table with button to delete holiday.                                                                                                 |       |
+| I want to be able to see all sessions booked with PT employees and edit/delete them. | All sessions booked displayed in table with edit and delete buttons. Edit button renders form to edit session.                                                 |
+<br><br>
