@@ -225,7 +225,7 @@ The navbar is present across all pages ecxept for custom pages to catch errors. 
 <details>
 <summary>Navbar Member Logged In</summary>
 <br>
-<img src="eeliteptpro/docs/readme-images/navbar-member-logged-in.png">
+<img src="eliteptpro/docs/readme-images/navbar-member-logged-in.png">
 </details>
 <details>
 <summary>Navbar Trainer Logged In</summary>
