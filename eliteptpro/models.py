@@ -2,7 +2,9 @@ from eliteptpro import db
 
 
 class User(db.Model):
-    # schema for User model
+    '''
+    schema for User model
+    '''
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, nullable=False)
     fname = db.Column(db.String, nullable=False)
@@ -20,7 +22,9 @@ class User(db.Model):
 
 
 class Trainers(db.Model):
-    # schema for Trainers model
+    '''
+    schema for Trainers model
+    '''
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
         "user.id", ondelete="CASCADE"), nullable=False)
@@ -36,7 +40,9 @@ class Trainers(db.Model):
 
 
 class Holidays(db.Model):
-    # schema for Holidays model
+    '''
+    schema for Holidays model
+    '''
     id = db.Column(db.Integer, primary_key=True)
     trainer_id = db.Column(db.Integer, db.ForeignKey(
             "trainers.id", ondelete="CASCADE"), nullable=False)
@@ -48,7 +54,9 @@ class Holidays(db.Model):
 
 
 class PTsessions(db.Model):
-    # schema for Sessions model
+    '''
+    schema for Sessions model
+    '''
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
         "user.id", ondelete="CASCADE"), nullable=False)
