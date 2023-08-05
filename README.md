@@ -517,7 +517,7 @@ For testing please the [Testing](/TESTING.md) documentation.
 
 To deploy to Heroku:
 1. In GitPod CLI, the root directory of the project, run:
-    pip3 free --local > requirements.txt
+    pip3 freeze --local > requirements.txt
     to create a requirements.txt file containing project dependencies.
 2. In the Gitpod project workspace root directory, create a new file called Procfile, with capital 'P'.
     Open the Procfile. Inside the file, check that web: python3 app.py has been added when creating the file
