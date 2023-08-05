@@ -244,7 +244,7 @@ def edit_pt_session(pt_session_id):
     trainer_name = selected_trainer.trainer_name
     pt_session.trainer_name = trainer_name
     if user.id != pt_session.user_id and (
-            session["user"] != "admin") and (user.is_pt != True):
+            session["user"] != "admin") and (not user.is_pt == True):
         flash("you do not have permission to edit this training session")
         return redirect(url_for("home"))
 
@@ -255,7 +255,6 @@ def edit_pt_session(pt_session_id):
             trainer_name=trainer).first()
         trainer_id = selected_trainer.id
         # edit row in table
-        pt_session.user_id = user.id,
         pt_session.trainer_id = trainer_id,
         pt_session.name = request.form.get("name"),
         pt_session.date = request.form.get("date"),
@@ -265,6 +264,8 @@ def edit_pt_session(pt_session_id):
 
         if user.is_pt:
             return redirect(url_for("pt_sessions", username=session["user"]))
+        elif session["user"] =="admin":
+            return redirect(url_for("manage", username=session["user"]))
         else:
             return redirect(url_for("my_sessions", username=session["user"]))
     return render_template("edit_pt_session.html", user=user,
@@ -278,7 +279,7 @@ def delete_pt_session(pt_session_id):
     # deletes pt session from the sessions table in db
     pt_session = PTsessions.query.get_or_404(pt_session_id)
     if user.id != pt_session.user_id and (
-            session["user"] != "admin") and (user.is_pt != True):
+            session["user"] != "admin") and (not user.is_pt == True):
         flash("you do not have permission to delete this training session")
         return redirect(url_for("home"))
 
