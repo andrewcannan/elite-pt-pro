@@ -12,6 +12,7 @@
     * [JS Validation](#js-validation)
     * [CI Python Linter](#ci-python-linter)
     * [Lighthouse](#lighthouse)
+    * [WAVE Accessibility](#wave-accessibility-checker)
 * [User Story Testing](#user-story-testing)
     * [General](#general)
     * [Logged Out](#logged-out)
