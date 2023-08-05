@@ -180,7 +180,7 @@ def delete_holiday(holiday_id):
     """
     # get user object that corresponds to the session user
     user = User.query.filter_by(username=session["user"]).first()
-    if not user.is_pt == True and (
+    if user.is_pt != True and (
             session["user"] != "admin"):
         flash("you do not have permission to delete this training session")
         return redirect(url_for("home"))
@@ -244,7 +244,7 @@ def edit_pt_session(pt_session_id):
     trainer_name = selected_trainer.trainer_name
     pt_session.trainer_name = trainer_name
     if user.id != pt_session.user_id and (
-            session["user"] != "admin") and (not user.is_pt == True):
+            session["user"] != "admin") and (user.is_pt != True):
         flash("you do not have permission to edit this training session")
         return redirect(url_for("home"))
 
@@ -279,7 +279,7 @@ def delete_pt_session(pt_session_id):
     # deletes pt session from the sessions table in db
     pt_session = PTsessions.query.get_or_404(pt_session_id)
     if user.id != pt_session.user_id and (
-            session["user"] != "admin") and (not user.is_pt == True):
+            session["user"] != "admin") and (user.is_pt != True):
         flash("you do not have permission to delete this training session")
         return redirect(url_for("home"))
 
