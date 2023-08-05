@@ -67,6 +67,15 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Admin page */
+
+.admin-table-heading {
+    font-size: 1.8rem;
+    line-height: 110%;
+    margin: 2.3733333333rem 0 1.424rem 0;
+    margin-top: 0;
+}
+
 /* Error pages */
 
 .error-container {

@@ -194,6 +194,58 @@ All python files run through CI PEP8 Linter and passed with no warnings, with th
 </details>
 <br><br>
 
+## WAVE Accessibility Checker
+
+<details>
+<summary>Homepage - No errors or contrast errors, two alerts for redundant links as Home link is present in both Nav logo and Nav link, Login link is present in both Nav and CTA button. Also an alert that a paragraph could be a heading when its not meant to be.</summary>
+<img src="eliteptpro/docs/validation-images/wave-homepage.png">
+</details>
+<details>
+<summary>Register - No errors or contrast errors, same three alerts as Homepage.</summary>
+<img src="eliteptpro/docs/validation-images/wave-register.png">
+</details>
+<details>
+<summary>Log In - No errors or contrast errors, alert for redundant home link and the same alert for paragraph could be heading.</summary>
+<img src="eliteptpro/docs/validation-images/wave-login.png">
+</details>
+<details>
+<summary>My Sessions - No errors or contrast errors, alert for redundant home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-my-sessions.png">
+</details>
+<details>
+<summary>Book Session - No contrast errors. Errors showing for empty button on datepicker, add missing form labels. I believe these to be bugs from the materialize framework. As the button is not present in my code and the labels are in my code for the select elements but when rendered are input elements instead of select. Same alert for home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-book-session.png">
+</details>
+<details>
+<summary>Edit Session - No contrast errors. Errors showing for empty button on datepicker, add missing form labels. I believe these to be bugs from the materialize framework. As the button is not present in my code and the labels are in my code for the select elements but when rendered are input elements instead of select. Same alert for home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-edit-session.png">
+</details>
+<details>
+<summary>PT Sessions - No errors or contrast errors, same alert for redundant home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-pt-sessions.png">
+</details>
+<details>
+<summary>Add Holiday - No contast errors. Error for empty button on datepicker again believed to be a materialize bug as its not in my code. Same alert for redundant home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-holiday.png">
+</details>
+<details>
+<summary>Manage - No errors or contrast errors. Same alert for redundant home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-manage.png">
+</details>
+<details>
+<summary>Edit User - No errors or contrast errors. Same alert for redundant home link.</summary>
+<img src="eliteptpro/docs/validation-images/wave-edit-user.png">
+</details>
+<details>
+<summary>404 Page - No errors, contrast errors or alerts.</summary>
+<img src="eliteptpro/docs/validation-images/wave-404.png">
+</details>
+<details>
+<summary>500 Page - No errors, contrast errors or alerts.</summary>
+<img src="eliteptpro/docs/validation-images/wave-500.png">
+</details>
+
+
 # User Story Testing
 
 ## General
