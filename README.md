@@ -210,7 +210,7 @@ The navbar is present across all pages ecxept for custom pages to catch errors. 
 <details>
 <summary>Navbar Trainer Logged In</summary>
 <br>
-<img src="eliteptpro/docs/readme-images/navbar-member-logged-in.png">
+<img src="eliteptpro/docs/readme-images/navbar-trainer-logged-in.png">
 </details>
 <details>
 <summary>Navbar Admin Logged In</summary>
@@ -301,7 +301,7 @@ Log in form is rendered and checks for user in database and password correct. Pr
 Form is rendered to register for the site, checks if user is already in database, if not adds them to database and checks if "is personal trainer" is true or not if true adds to trainers table too.  Prompt at bottom of form if already registered with link to Log In page.
 
 <details>
-<summary>Log In</summary></summary>
+<summary>Register</summary></summary>
 <br>
 <img src="eliteptpro/docs/readme-images/register.png">
 </details>
