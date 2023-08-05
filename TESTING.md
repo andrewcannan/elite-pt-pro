@@ -110,7 +110,7 @@ Custom JS script file run through [JShint](https://jshint.com/) for validation. 
 
 ## CI Python Linter
 
-All python files run through CI PEP8 Linter and passed with no warnings, with the exception of the routes file. This file contains a conditional on line 272 which checks if user.pt is not True using the expression '!='. The linter suggests to use if not but trying to change it to this and the code doesn't work so I have chosen to overlook it. I have ommited a screenshot of the env file as not to disclose the variables for security but this also passed.
+All python files run through CI PEP8 Linter and passed with no warnings, with the exception of the routes file. This file contains three conditionals that check a paramater is not True using the expression '!='. The linter suggests to use if not but trying to change it to this and the code doesn't work so I have chosen to overlook it. I have ommited a screenshot of the env file as not to disclose the variables for security but this also passed.
 
 <details>
 <summary>Routes.py</summary>
