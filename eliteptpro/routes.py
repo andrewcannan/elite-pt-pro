@@ -264,7 +264,7 @@ def edit_pt_session(pt_session_id):
 
         if user.is_pt:
             return redirect(url_for("pt_sessions", username=session["user"]))
-        elif session["user"] =="admin":
+        elif session["user"] == "admin":
             return redirect(url_for("manage", username=session["user"]))
         else:
             return redirect(url_for("my_sessions", username=session["user"]))
