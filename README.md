@@ -149,26 +149,6 @@ Wireframes created using balsamiq.
 <details>
 <summary>Add/Edit Holiday Desktop</summary>
 <br>
-<img src="eliteptpro/docs/wireframes/book-session-desktop.png">
-</details>
-<details>
-<summary>Add/Edit Holiday Mobile</summary>
-<br>
-<img src="eliteptpro/docs/wireframes/book-session-mobile.png">
-</details>
-<details>
-<summary>Add/Edit Holiday Desktop</summary>
-<br>
-<img src="eliteptpro/docs/wireframes/holiday-form-desktop.png">
-</details>
-<details>
-<summary>Add/Edit Holiday Mobile</summary>
-<br>
-<img src="eliteptpro/docs/wireframes/holiday-form-mobile.png">
-</details>
-<details>
-<summary>Add/Edit Holiday Desktop</summary>
-<br>
 <img src="eliteptpro/docs/wireframes/holiday-form-desktop.png">
 </details>
 <details>
