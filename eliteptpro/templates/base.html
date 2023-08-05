@@ -23,11 +23,11 @@
         <!-- Top NavBar -->
         <nav id="my-nav" class="grey darken-3">
             <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo logo-image">
+                <a href="{{ url_for('home') }}" class="brand-logo logo-image" aria-label="logo-image home-link">
                     <img class="logo-image" src="{{ url_for('static', filename='images/Elite-Fitness-1.png') }}"
                         alt="elite fitness app logo">
                 </a>
-                <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger right" aria-label="hamburger-icon side-nav button"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     {% if session.user == "admin" %}
